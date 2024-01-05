@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { addClient, addClients } from '../services/allApi';
+import {  addClients } from '../services/allApi';
 
 function FormPage() {
 
