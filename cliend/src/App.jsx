@@ -7,6 +7,7 @@ function App() {
    <div>
     {/* <FormPage/> */}
     <Admin/>
+    <FormPage/>
    </div>
   );
 }

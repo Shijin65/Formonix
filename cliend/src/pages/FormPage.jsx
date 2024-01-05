@@ -1,6 +1,61 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { addClient, addClients } from '../services/allApi';
 
 function FormPage() {
+
+  const [clientdetails,setClientdetails]=useState({
+    applicant_name:"",
+    dob:"",
+    address:"",
+    state:"",
+    country:"",
+    country_apply:"",
+    passport_number:"",
+    job_category:"",
+    residence_id:"",
+    applicant_image:"",
+    passport_front:"",
+    passport_back:"",
+    passport_full:"",
+    expirience_cerificate:"",
+    pcc:"",
+    bank_statement:"",
+    resume:""
+
+  })
+  console.log(clientdetails);
+
+
+  const handleSubmit=async()=>{
+    e.preventDefualt()
+
+    const reqbody=new FormData() 
+
+    reqbody.append('applicant_name',applicant_name)
+    reqbody.append('dob',dob)
+    reqbody.append('address',address)
+    reqbody.append('state',state)
+    reqbody.append('country',country)
+    reqbody.append('country_apply',country_apply)
+    reqbody.append('passport_number',passport_number)
+    reqbody.append('job_category',job_category)
+    reqbody.append('residence_id',residence_id)
+    reqbody.append('applicant_image',applicant_image)
+    reqbody.append('passport_front',passport_front)
+    reqbody.append('passport_back',passport_back)
+    reqbody.append('passport_full',passport_full)
+    reqbody.append('expirience_cerificate',expirience_cerificate)
+    reqbody.append('pcc',pcc)
+    reqbody.append('bank_statement',bank_statement)
+    reqbody.append('resume',resume)
+
+
+    const result=await addClients(reqbody)
+    console.log(result);
+
+  }
+
+  
   return (
     <div className="md:mx-14 my-8 mx-8 text-center">
     <h1 className="text-center text-2xl font-bold ">FORM</h1>
@@ -28,7 +83,7 @@ function FormPage() {
                   id="applicant-name"
                   autoComplete="given-name"
                   className="input input-bordered w-full max-w-md "
-                  required
+                  required onChange={(e)=>setClientdetails({...clientdetails,applicant_name:e.target.value})}
                 />
               </div>
             </div>
@@ -49,7 +104,7 @@ function FormPage() {
                   name="dob"
                   id="dob"
                   autoComplete="given-name"
-                  className="input input-bordered w-full max-w-md "
+                  className="input input-bordered w-full max-w-md " onChange={(e)=>setClientdetails({...clientdetails,dob:e.target.value})}
                 />
               </div>
             </div>
@@ -69,7 +124,7 @@ function FormPage() {
                   name="passport_number"
                   id="passport_number"
                   autoComplete="given-name"
-                  className="input input-bordered w-full max-w-md "
+                  className="input input-bordered w-full max-w-md " onChange={(e)=>setClientdetails({...clientdetails,passport_number:e.target.value})}
                 />
               </div>
             </div>
@@ -89,7 +144,7 @@ function FormPage() {
                   name="Address"
                   id="Address"
                   required
-                  className="input input-bordered w-full max-w-md "
+                  className="input input-bordered w-full max-w-md " onChange={(e)=>setClientdetails({...clientdetails,address:e.target.value})}
                 />
               </div>
             </div>
@@ -110,7 +165,7 @@ function FormPage() {
                   name="first-name"
                   id="first-name"
                   autoComplete="given-name"
-                  className="input input-bordered w-full max-w-md "
+                  className="input input-bordered w-full max-w-md " onChange={(e)=>setClientdetails({...clientdetails,state:e.target.value})}
                 />
               </div>
             </div>
@@ -129,7 +184,7 @@ function FormPage() {
                   id="country"
                   name="country"
                   autoComplete="country-name"
-                  className=" input input-bordered w-full max-w-md "
+                  className=" input input-bordered w-full max-w-md " onChange={(e)=>setClientdetails({...clientdetails,country:e.target.value})}
                 >
                   <option value="">Select</option>
                   <option>United States</option>
@@ -153,7 +208,7 @@ function FormPage() {
                   id="countrytoapply"
                   name="countrytoapply"
                   autoComplete="countrytoapply"
-                  className=" input input-bordered w-full max-w-md "
+                  className=" input input-bordered w-full max-w-md " onChange={(e)=>setClientdetails({...clientdetails,country_apply:e.target.value})}
                 >
                   <option value="">Select</option>
                   <option>United States</option>
@@ -177,7 +232,7 @@ function FormPage() {
                   id="Category"
                   name="Category"
                   autoComplete="Category"
-                  className=" input input-bordered w-full max-w-md "
+                  className=" input input-bordered w-full max-w-md " onChange={(e)=>setClientdetails({...clientdetails,job_category:e.target.value})}
                 >
                   <option value="">Select</option>
                   <option>Software tester</option>
@@ -210,7 +265,7 @@ function FormPage() {
                   id="Residence_id"
                   autoComplete="Residence_id"
                   type="file"
-                  className="file-input w-full max-w-xs "
+                  className="file-input w-full max-w-xs " onChange={(e)=>setClientdetails({...clientdetails,residence_id:e.target.files[0]})}
                 />
               </div>
             </div>
@@ -231,7 +286,7 @@ function FormPage() {
                   id="Applicant_Image"
                   autoComplete="Applicant_Image"
                   type="file"
-                  className="file-input w-full max-w-xs "
+                  className="file-input w-full max-w-xs " onChange={(e)=>setClientdetails({...clientdetails,applicant_image:e.target.files[0]})}
                 />
               </div>
             </div>
@@ -252,7 +307,7 @@ function FormPage() {
                   id="Passport_front_side"
                   autoComplete="Passport_front_side"
                   type="file"
-                  className="file-input w-full max-w-xs "
+                  className="file-input w-full max-w-xs " onChange={(e)=>setClientdetails({...clientdetails,passport_front:e.target.files[0]})}
                 />
               </div>
             </div>
@@ -273,7 +328,7 @@ function FormPage() {
                   id="Passport_back_side"
                   autoComplete="Passport_back_side"
                   type="file"
-                  className="file-input w-full max-w-xs "
+                  className="file-input w-full max-w-xs " onChange={(e)=>setClientdetails({...clientdetails,passport_back:e.target.files[0]})}
                 />
               </div>
             </div>
@@ -294,7 +349,7 @@ function FormPage() {
                   id="Full_Passport"
                   autoComplete="Full_Passport"
                   type="file"
-                  className="file-input w-full max-w-xs "
+                  className="file-input w-full max-w-xs " onChange={(e)=>setClientdetails({...clientdetails,passport_full:e.target.files[0]})}
                 />
               </div>
             </div>
@@ -315,7 +370,7 @@ function FormPage() {
                   id="Experience_Certificate"
                   autoComplete="Experience_Certificate"
                   type="file"
-                  className="file-input w-full max-w-xs "
+                  className="file-input w-full max-w-xs " onChange={(e)=>setClientdetails({...clientdetails,expirience_cerificate:e.target.files[0]})}
                 />
               </div>
             </div>
@@ -336,7 +391,7 @@ function FormPage() {
                   id="PCC"
                   autoComplete="PCC"
                   type="file"
-                  className="file-input w-full max-w-xs "
+                  className="file-input w-full max-w-xs " onChange={(e)=>setClientdetails({...clientdetails,pcc:e.target.files[0]})}
                 />
               </div>
             </div>
@@ -344,10 +399,31 @@ function FormPage() {
             {/* Bank_Statement */}
             <div className="text-left">
               <label
-                htmlFor="Bank_Statement"
+                htmlFor="resume"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
                 Bank Statement
+              </label>
+              <div className="mt-2">
+                <input
+                  placeholder="Type here"
+                  name="resume"
+                  id="resume"
+                  autoComplete="resume"
+                  type="file"
+                  className="file-input w-full max-w-xs " onChange={(e)=>setClientdetails({...clientdetails,bank_statement:e.target.files[0]})}
+                />
+              </div>
+            </div>
+
+            {/* resume */}
+
+            <div className="text-left">
+              <label
+                htmlFor="Bank_Statement"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                Resume
               </label>
               <div className="mt-2">
                 <input
@@ -356,7 +432,7 @@ function FormPage() {
                   id="Bank_Statement"
                   autoComplete="Bank_Statement"
                   type="file"
-                  className="file-input w-full max-w-xs "
+                  className="file-input w-full max-w-xs " onChange={(e)=>setClientdetails({...clientdetails,resume:e.target.files[0]})}
                 />
               </div>
             </div>
@@ -364,7 +440,7 @@ function FormPage() {
         </div>
 
         <div className="mt-6 flex items-center justify-end gap-x-6">
-          <button type="submit" className="btn glass bg-green-600">
+          <button onClick={handleSubmit} type="submit" className="btn glass bg-green-600">
             Submit
           </button>
           <button type="button" className="btn glass text-sm bg-red-500">

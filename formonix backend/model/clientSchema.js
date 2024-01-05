@@ -7,7 +7,7 @@ const clientSchema=new mongoose.Schema({
         require:true
     },
     dob:{
-        type:Number,
+        type:String,
         require:true
     },
     address:{
@@ -27,7 +27,7 @@ const clientSchema=new mongoose.Schema({
         require:true
     },
     passport_number:{
-        type:Number,
+        type:String,
         require:true
     },
     job_category:{
