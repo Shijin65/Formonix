@@ -2,17 +2,25 @@
 
 const express=require('express')
 
-const router=new express.Router()
 
 
 // import controller
 
 const clientcontroller=require('../controller/clientcontroller')
+
+
+// import multer
+
 const multerconfig = require('../middlewares/multermiddleware')
+
+
+const router=new express.Router()
+
+
 
 // add client
 
-router.post('/clients/add',multerconfig.any([
+router.post('/clients',multerconfig.fields([
     {name:'residence_id',maxCount:1},
     {name:'applicant_image',maxCount:1},
     {name:'passport_front',maxCount:1},
@@ -25,4 +33,7 @@ router.post('/clients/add',multerconfig.any([
     
 
 ]),clientcontroller.addClient)
+
+
+module.exports=router
 

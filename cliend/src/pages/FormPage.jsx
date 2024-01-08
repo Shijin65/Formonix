@@ -23,43 +23,128 @@ function FormPage() {
     resume:""
 
   })
-  console.log(clientdetails);
+  // console.log(clientdetails);
 
 
-  const handleSubmit=async()=>{
-    e.preventDefualt()
+  // const handleadd=async(e)=>{
+  //   e.preventDefault()
 
-    const reqbody=new FormData() 
+  //   // console.log(e.target.value)
+    
 
-    reqbody.append('applicant_name',applicant_name)
-    reqbody.append('dob',dob)
-    reqbody.append('address',address)
-    reqbody.append('state',state)
-    reqbody.append('country',country)
-    reqbody.append('country_apply',country_apply)
-    reqbody.append('passport_number',passport_number)
-    reqbody.append('job_category',job_category)
-    reqbody.append('residence_id',residence_id)
-    reqbody.append('applicant_image',applicant_image)
-    reqbody.append('passport_front',passport_front)
-    reqbody.append('passport_back',passport_back)
-    reqbody.append('passport_full',passport_full)
-    reqbody.append('expirience_cerificate',expirience_cerificate)
-    reqbody.append('pcc',pcc)
-    reqbody.append('bank_statement',bank_statement)
-    reqbody.append('resume',resume)
+  //   if(!applicant_name){
+  //     alert('please fill the form')
 
+  //   }else{
+  //     const reqbody=new FormData() 
 
-    const result=await addClients(reqbody)
-    console.log(result);
+  //   reqbody.append('applicant_name',applicant_name)
+  //   reqbody.append('dob',dob)
+  //   reqbody.append('address',address)
+  //   reqbody.append('state',state)
+  //   reqbody.append('country',country)
+  //   reqbody.append('country_apply',country_apply)
+  //   reqbody.append('passport_number',passport_number)
+  //   reqbody.append('job_category',job_category)
+  //   reqbody.append('residence_id',residence_id)
+  //   reqbody.append('applicant_image',applicant_image)
+  //   reqbody.append('passport_front',passport_front)
+  //   reqbody.append('passport_back',passport_back)
+  //   reqbody.append('passport_full',passport_full)
+  //   reqbody.append('expirience_cerificate',expirience_cerificate)
+  //   reqbody.append('pcc',pcc)
+  //   reqbody.append('bank_statement',bank_statement)
+  //   reqbody.append('bank_statement',resume)
 
-  }
+    
+
+  //   const result=await addClients
+  //   (reqbody)
+  //   console.log(result);
+
+  //   if(result.status===200){
+  //     alert('uploaded successfully')
+  //   }
+  //   else{
+  //     alert(result.response.data)
+  //   }
+
+  //   }
+    
+
+  // }
+
+  const handleadd = async (e) => {
+    e.preventDefault();
+  
+    // Destructure values from the state
+    const {
+      applicant_name,
+      dob,
+      address,
+      state,
+      country,
+      country_apply,
+      passport_number,
+      job_category,
+      residence_id,
+      applicant_image,
+      passport_front,
+      passport_back,
+      passport_full,
+      expirience_cerificate,
+      pcc,
+      bank_statement,
+      resume,
+    } = clientdetails;
+
+    console.log('hiiiiii');
+  
+    if (!applicant_name) {
+      alert('please fill the form');
+    } 
+    else {
+      const reqbody = new FormData();
+  
+      // Append form values to FormData
+      reqbody.append('applicant_name', applicant_name);
+      reqbody.append('dob', dob);
+      reqbody.append('address', address);
+      reqbody.append('state', state);
+      reqbody.append('country', country);
+      reqbody.append('country_apply', country_apply);
+      reqbody.append('passport_number', passport_number);
+      reqbody.append('job_category', job_category);
+      reqbody.append('residence_id', residence_id);
+      reqbody.append('applicant_image', applicant_image);
+      reqbody.append('passport_front', passport_front);
+      reqbody.append('passport_back', passport_back);
+      reqbody.append('passport_full', passport_full);
+      reqbody.append('expirience_cerificate', expirience_cerificate);
+      reqbody.append('pcc', pcc);
+      reqbody.append('bank_statement', bank_statement);
+      reqbody.append('resume', resume);
+  
+      
+        // Use the updated addClients function with reqbody
+        const result = await addClients(reqbody);
+        console.log(result);
+  
+        if (result.status === 200) {
+          alert('uploaded successfully');
+        } else {
+          alert(result.response.data);
+        }
+      
+    }
+  };
+  
 
   
   return (
     <div className="md:mx-14 my-8 mx-8 text-center">
     <h1 className="text-center text-2xl font-bold ">FORM</h1>
-    <form className="mt-5 mx-5">
+    <form className="mt-5 mx-5" onSubmit={handleadd}>
       <div className="space-y-12 ">
         <div className=" border-gray-900/10 pb-12">
           <h2 className="text-base font-semibold leading-7 text-gray-900">
@@ -248,7 +333,7 @@ function FormPage() {
           </h1>
 
           <div className=" grid lg:grid-cols-3 md:grid-cols-2 gap-x-5 gap-y-4 content-center">
-            {/* Residence_ID
+            {/* residence_id
              */}
             <div className="text-left">
               <label
@@ -261,9 +346,9 @@ function FormPage() {
                 <input
                   placeholder="Type here"
                   
-                  name="Residence_id"
-                  id="Residence_id"
-                  autoComplete="Residence_id"
+                  name="residence_id"
+                  id="residence_id"
+                  autoComplete="residence_id"
                   type="file"
                   className="file-input w-full max-w-xs " onChange={(e)=>setClientdetails({...clientdetails,residence_id:e.target.files[0]})}
                 />
@@ -273,7 +358,7 @@ function FormPage() {
             {/* Applicant Image */}
             <div className="text-left">
               <label
-                htmlFor="Applicant_Image"
+                htmlFor="applicant_image"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
                 Applicant Image
@@ -282,9 +367,9 @@ function FormPage() {
                 <input
                   placeholder="Type here"
                   required
-                  name="Applicant_Image"
-                  id="Applicant_Image"
-                  autoComplete="Applicant_Image"
+                  name="applicant_image"
+                  id="applicant_image"
+                  autoComplete="applicant_image"
                   type="file"
                   className="file-input w-full max-w-xs " onChange={(e)=>setClientdetails({...clientdetails,applicant_image:e.target.files[0]})}
                 />
@@ -303,9 +388,9 @@ function FormPage() {
                 <input
                   placeholder="Type here"
                   required
-                  name="Passport_front_side"
-                  id="Passport_front_side"
-                  autoComplete="Passport_front_side"
+                  name="passport_front"
+                  id="passport_front"
+                  autoComplete="passport_front"
                   type="file"
                   className="file-input w-full max-w-xs " onChange={(e)=>setClientdetails({...clientdetails,passport_front:e.target.files[0]})}
                 />
@@ -324,19 +409,19 @@ function FormPage() {
                 <input
                   placeholder="Type here"
                   required
-                  name="Passport_back_side"
-                  id="Passport_back_side"
-                  autoComplete="Passport_back_side"
+                  name="passport_back"
+                  id="passport_back"
+                  autoComplete="passport_back"
                   type="file"
                   className="file-input w-full max-w-xs " onChange={(e)=>setClientdetails({...clientdetails,passport_back:e.target.files[0]})}
                 />
               </div>
             </div>
 
-            {/* Full_Passport */}
+            {/* passport_full */}
             <div className="text-left">
               <label
-                htmlFor="Full_Passport"
+                htmlFor="passport_full"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
                 Full Passport
@@ -345,16 +430,16 @@ function FormPage() {
                 <input
                   placeholder="Type here"
                   required
-                  name="Full_Passport"
-                  id="Full_Passport"
-                  autoComplete="Full_Passport"
+                  name="passport_full"
+                  id="passport_full"
+                  autoComplete="passport_full"
                   type="file"
                   className="file-input w-full max-w-xs " onChange={(e)=>setClientdetails({...clientdetails,passport_full:e.target.files[0]})}
                 />
               </div>
             </div>
 
-            {/* Experience_Certificate */}
+            {/* expirience_cerificate */}
             <div className="text-left">
               <label
                 htmlFor="first-name"
@@ -366,30 +451,30 @@ function FormPage() {
                 <input
                   placeholder="Type here"
                   
-                  name="Experience_Certificate"
-                  id="Experience_Certificate"
-                  autoComplete="Experience_Certificate"
+                  name="expirience_cerificate"
+                  id="expirience_cerificate"
+                  autoComplete="expirience_cerificate"
                   type="file"
                   className="file-input w-full max-w-xs " onChange={(e)=>setClientdetails({...clientdetails,expirience_cerificate:e.target.files[0]})}
                 />
               </div>
             </div>
 
-            {/* PCC */}
+            {/* pcc */}
             <div className="text-left">
               <label
-                htmlFor="PCC"
+                htmlFor="pcc"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
-                PCC
+                pcc
               </label>
               <div className="mt-2">
                 <input
                   
                   placeholder="Type here"
-                  name="PCC"
-                  id="PCC"
-                  autoComplete="PCC"
+                  name="pcc"
+                  id="pcc"
+                  autoComplete="pcc"
                   type="file"
                   className="file-input w-full max-w-xs " onChange={(e)=>setClientdetails({...clientdetails,pcc:e.target.files[0]})}
                 />
@@ -399,7 +484,7 @@ function FormPage() {
             {/* Bank_Statement */}
             <div className="text-left">
               <label
-                htmlFor="resume"
+                htmlFor="bank_statement"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
                 Bank Statement
@@ -407,9 +492,9 @@ function FormPage() {
               <div className="mt-2">
                 <input
                   placeholder="Type here"
-                  name="resume"
-                  id="resume"
-                  autoComplete="resume"
+                  name="bank_statement"
+                  id="bank_statement"
+                  autoComplete="bank_statement"
                   type="file"
                   className="file-input w-full max-w-xs " onChange={(e)=>setClientdetails({...clientdetails,bank_statement:e.target.files[0]})}
                 />
@@ -420,17 +505,17 @@ function FormPage() {
 
             <div className="text-left">
               <label
-                htmlFor="Bank_Statement"
+                htmlFor="resume"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
-                Resume
+                resume
               </label>
               <div className="mt-2">
                 <input
                   placeholder="Type here"
-                  name="Bank_Statement"
-                  id="Bank_Statement"
-                  autoComplete="Bank_Statement"
+                  name="resume"
+                  id="resume"
+                  autoComplete="resume"
                   type="file"
                   className="file-input w-full max-w-xs " onChange={(e)=>setClientdetails({...clientdetails,resume:e.target.files[0]})}
                 />
@@ -440,7 +525,7 @@ function FormPage() {
         </div>
 
         <div className="mt-6 flex items-center justify-end gap-x-6">
-          <button onClick={handleSubmit} type="submit" className="btn glass bg-green-600">
+          <button  type="submit" className="btn glass bg-green-600">
             Submit
           </button>
           <button type="button" className="btn glass text-sm bg-red-500">

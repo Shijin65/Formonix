@@ -2,6 +2,8 @@
 
 const multer=require('multer')
 
+console.log('inside multer');
+
 // creating storage place
 const storage=multer.diskStorage({
     destination:(req,file,callback)=>{
@@ -16,7 +18,7 @@ const storage=multer.diskStorage({
 
 const fileFilter=(req,file,callback)=>{
 
-    if(file.mimetype===`image/png` || file.mimetype===`image/jpg` || file.mimetype===`image/jpeg` || file.mimetype===`image/pdf` ){
+    if(file.mimetype===`image/png` || file.mimetype===`image/jpg` || file.mimetype===`image/jpeg` || file.mimetype===`application/pdf` ){
         callback(null,true)
 
     }else{
