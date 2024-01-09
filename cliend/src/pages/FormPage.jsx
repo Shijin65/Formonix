@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { addClients } from '../services/allApi';
-import Swal from 'sweetalert2';
 
 function FormPage() {
 
@@ -48,10 +47,11 @@ function FormPage() {
       resume,
     } = clientdetails;
 
-    alert('kjnknlknlml')
+    
 
     if(!applicant_name || !dob || !address || !passport_number || !country_apply || !job_category || !applicant_image || !passport_front || !passport_back || !passport_full){
-      alert('please fill the form')
+     alert('please fill the form')
+     
     }else{
 
       const reqbody = new FormData();
@@ -77,29 +77,12 @@ function FormPage() {
 
       const result = await addClients(reqbody);
       console.log(result);
-      alert(`added succesfully`)
+      
 
       if(result.status===200){
-        
-        setClientdetails({
-                  applicant_name: "",
-                  dob: "",
-                  address: "",
-                  state: "",
-                  country: "",
-                  country_apply: "",
-                  passport_number: "",
-                  job_category: "",
-                  residence_id: "",
-                  applicant_image: "",
-                  passport_front: "",
-                  passport_back: "",
-                  passport_full: "",
-                  expirience_cerificate: "",
-                  pcc: "",
-                  bank_statement: "",
-                  resume: ""
-                })
+
+        alert('uploaded successfully')
+  
       }else{
         alert(result.response.data)
       }
@@ -108,99 +91,12 @@ function FormPage() {
 
   }
 
+  
+
 
  
 
-  // const handleadd = async (e) => {
-  //   e.preventDefault();
-  //   console.log(`klfmgf`)
-
-  //   // Destructure values from the state
-  //   const {
-  //     applicant_name,
-  //     dob,
-  //     address,
-  //     state,
-  //     country,
-  //     country_apply,
-  //     passport_number,
-  //     job_category,
-  //     residence_id,
-  //     applicant_image,
-  //     passport_front,
-  //     passport_back,
-  //     passport_full,
-  //     expirience_cerificate,
-  //     pcc,
-  //     bank_statement,
-  //     resume,
-  //   } = clientdetails;
-
-   
-
-  //   if (!applicant_name || !dob || !address || !passport_number || !country_apply || !job_category || !applicant_image || !passport_front || !passport_back || !passport_full) {
-  //     console.log('fill the form')
-  //   }
-  //   else {
-  //     const reqbody = new FormData();
-
-        // Append form values to FormData
-  //     reqbody.append('applicant_name', applicant_name);
-  //     reqbody.append('dob', dob);
-  //     reqbody.append('address', address);
-  //     reqbody.append('state', state);
-  //     reqbody.append('country', country);
-  //     reqbody.append('country_apply', country_apply);
-  //     reqbody.append('passport_number', passport_number);
-  //     reqbody.append('job_category', job_category);
-  //     reqbody.append('residence_id', residence_id);
-  //     reqbody.append('applicant_image', applicant_image);
-  //     reqbody.append('passport_front', passport_front);
-  //     reqbody.append('passport_back', passport_back);
-  //     reqbody.append('passport_full', passport_full);
-  //     reqbody.append('expirience_cerificate', expirience_cerificate);
-  //     reqbody.append('pcc', pcc);
-  //     reqbody.append('bank_statement', bank_statement);
-  //     reqbody.append('resume', resume);
-
-
-  //     // Use the updated addClients function with reqbody
-  //     const result = await addClients(reqbody);
-  //     console.log(result);
-
-  //     if (result.status === 200) {
-  //       Swal.fire({
-  //         title: "Uploaded",
-  //         text: "Your details has been uploaded successfully",
-  //         icon: "success"
-  //       });
-
-  //       setClientdetails({
-  //         applicant_name: "",
-  //         dob: "",
-  //         address: "",
-  //         state: "",
-  //         country: "",
-  //         country_apply: "",
-  //         passport_number: "",
-  //         job_category: "",
-  //         residence_id: "",
-  //         applicant_image: "",
-  //         passport_front: "",
-  //         passport_back: "",
-  //         passport_full: "",
-  //         expirience_cerificate: "",
-  //         pcc: "",
-  //         bank_statement: "",
-  //         resume: ""
-  //       })
-  //     } else {
-  //       alert(result.response.data);
-  //     }
-
-  //   }
-  // };
-
+ 
 
 
   return (
@@ -230,7 +126,7 @@ function FormPage() {
                     id="applicant-name"
                     autoComplete="given-name"
                     className="input input-bordered w-full max-w-md "
-                    required onChange={(e) => setClientdetails({ ...clientdetails, applicant_name: e.target.value })}
+                     onChange={(e) => setClientdetails({ ...clientdetails, applicant_name: e.target.value })}
                   />
                 </div>
               </div>
@@ -245,7 +141,7 @@ function FormPage() {
                 </label>
                 <div className="mt-2">
                   <input
-                    required
+                    
                     placeholder="Type here"
                     type="date"
                     name="dob"
@@ -290,7 +186,7 @@ function FormPage() {
                     type="text"
                     name="Address"
                     id="Address"
-                    required
+                    
                     className="input input-bordered w-full max-w-md " onChange={(e) => setClientdetails({ ...clientdetails, address: e.target.value })}
                   />
                 </div>
@@ -306,7 +202,7 @@ function FormPage() {
                 </label>
                 <div className="mt-2">
                   <input
-                    required
+                    
                     placeholder="Type here"
                     type="text"
                     name="first-name"
@@ -327,11 +223,12 @@ function FormPage() {
                 </label>
                 <div className="mt-2">
                   <select
-                    required
+                    
                     id="country"
                     name="country"
                     autoComplete="country-name"
-                    className=" input input-bordered w-full max-w-md " onChange={(e) => setClientdetails({ ...clientdetails, country: e.target.value })}
+                    className=" input input-bordered w-full max-w-md "
+                    onChange={(e) => setClientdetails({ ...clientdetails, country: e.target.value })}
                   >
                     <option value="">Select</option>
                     <option>United States</option>
@@ -351,7 +248,7 @@ function FormPage() {
                 </label>
                 <div className="mt-2">
                   <select
-                    required
+                    
                     id="countrytoapply"
                     name="countrytoapply"
                     autoComplete="countrytoapply"
@@ -375,7 +272,7 @@ function FormPage() {
                 </label>
                 <div className="mt-2">
                   <select
-                    required
+                    
                     id="Category"
                     name="Category"
                     autoComplete="Category"
@@ -428,7 +325,7 @@ function FormPage() {
                 <div className="mt-2">
                   <input
                     placeholder="Type here"
-                    required
+                    
                     name="applicant_image"
                     id="applicant_image"
                     autoComplete="applicant_image"
@@ -449,7 +346,7 @@ function FormPage() {
                 <div className="mt-2">
                   <input
                     placeholder="Type here"
-                    required
+                    
                     name="passport_front"
                     id="passport_front"
                     autoComplete="passport_front"
@@ -470,7 +367,7 @@ function FormPage() {
                 <div className="mt-2">
                   <input
                     placeholder="Type here"
-                    required
+                    
                     name="passport_back"
                     id="passport_back"
                     autoComplete="passport_back"
@@ -491,7 +388,7 @@ function FormPage() {
                 <div className="mt-2">
                   <input
                     placeholder="Type here"
-                    required
+                    
                     name="passport_full"
                     id="passport_full"
                     autoComplete="passport_full"
@@ -558,6 +455,7 @@ function FormPage() {
                     id="bank_statement"
                     autoComplete="bank_statement"
                     type="file"
+                    
                     className="file-input w-full max-w-xs " onChange={(e) => setClientdetails({ ...clientdetails, bank_statement: e.target.files[0] })}
                   />
                 </div>
@@ -579,6 +477,7 @@ function FormPage() {
                     id="resume"
                     autoComplete="resume"
                     type="file"
+                    
                     className="file-input w-full max-w-xs " onChange={(e) => setClientdetails({ ...clientdetails, resume: e.target.files[0] })}
                   />
                 </div>
@@ -590,7 +489,7 @@ function FormPage() {
             <button type="submit" className="btn glass bg-green-600">
               Submit
             </button>
-            <button type="button" className="btn glass text-sm bg-red-500">
+            <button  type="button" className="btn glass text-sm bg-red-500">
               Cancel
             </button>
           </div>

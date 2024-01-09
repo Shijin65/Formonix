@@ -4,7 +4,7 @@ import ShowModal from "../Components/ShowModal"
 function ShowData() {
   const [modalShow, setModalShow] = useState(false);
   const [itemdata,setitemdata]=useState([])
-  console.log(itemdata)
+  // console.log(itemdata)
   const data = [
     {
       id: "1",

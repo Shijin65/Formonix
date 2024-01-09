@@ -86,6 +86,19 @@ console.log('Resume Filename:', resume);
 
 }
 
+// get client detials
+
+exports.getclientsDetails=async(req,res)=>{
+    try {
+        const allclients=await clients.find()
+        res.status(200).json(allclients)
+        
+    } catch (error) {
+        res.status(406).json(`error occure due to ${error}`)
+        
+    }
+}
+
 
 
 

@@ -35,5 +35,9 @@ router.post('/clients',multerconfig.fields([
 ]),clientcontroller.addClient)
 
 
+// get clients
+router.get('/admin/clients',clientcontroller.getclientsDetails)
+
+
 module.exports=router
 
