@@ -76,13 +76,13 @@ function FormPage() {
       reqbody.append('resume', resume);
 
       const result = await addClients(reqbody);
-      console.log(result);
+      console.log(!result.error);
       
 
-      if(result.status===200){
+      if(!result.error){
 
         alert('uploaded successfully')
-  
+        window.location.reload()
       }else{
         alert(result.response.data)
       }
@@ -90,14 +90,6 @@ function FormPage() {
 
 
   }
-
-  
-
-
- 
-
- 
-
 
   return (
     <div className="md:mx-14 my-8 mx-8 text-center">
@@ -234,6 +226,7 @@ function FormPage() {
                     <option>United States</option>
                     <option>Canada</option>
                     <option>Mexico</option>
+                    <option>India</option>
                   </select>
                 </div>
               </div>
