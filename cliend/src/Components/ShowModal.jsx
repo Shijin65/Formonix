@@ -146,7 +146,7 @@ const {Clientdata}=props
     </div>
     {/* Passport Front Side */}
     <div className="py-2 shadow-md hover:shadow-lg rounded-md flex justify-between px-4 text-md font-semibold">
-      <label htmlFor="">Passport Front Side : </label>
+      <label htmlFor="">Passport Front Side  </label>
       <div>
         <button
           className="btn btn-sm"
@@ -183,7 +183,7 @@ const {Clientdata}=props
     </div>
     {/* Passport Back Side */}
     <div className="py-2 shadow-md hover:shadow-lg rounded-md flex justify-between px-4 text-md font-semibold">
-      <label htmlFor="">Passport Back Side : </label>
+      <label htmlFor="">Passport Back Side  </label>
       <div>
         <button
           className="btn btn-sm"
@@ -220,7 +220,7 @@ const {Clientdata}=props
     </div>
     {/* Full Passport */}
     <div className="py-2 shadow-md hover:shadow-lg rounded-md flex justify-between px-4 text-md font-semibold">
-      <label htmlFor="">Full Passport : </label>
+      <label htmlFor="">Full Passport  </label>
       <div>
         <button
           className="btn btn-sm"
@@ -252,7 +252,7 @@ const {Clientdata}=props
     </div>
     {/* Experience Certificate */}
     <div className="py-2 shadow-md hover:shadow-lg rounded-md flex justify-between px-4 text-md font-semibold">
-      <label htmlFor="">Experience Certificate : </label>
+      <label htmlFor="">Experience Certificate </label>
       <div>
         <button
           className="btn btn-sm"
@@ -291,7 +291,7 @@ const {Clientdata}=props
     </div>
     {/* PCC */}
     <div className="py-2 shadow-md hover:shadow-lg rounded-md flex justify-between px-4 text-md font-semibold">
-      <label htmlFor="">PCC : </label>
+      <label htmlFor="">PCC  </label>
       <div>
         <button
           className="btn btn-sm"
@@ -322,7 +322,7 @@ const {Clientdata}=props
     </div>
     {/* Bank Statement */}
     <div className="py-2 shadow-md hover:shadow-lg rounded-md flex justify-between px-4 text-md font-semibold">
-      <label htmlFor="">Bank Statement : </label>
+      <label htmlFor="">Bank Statement </label>
       <div>
         <button
           className="btn btn-sm"
@@ -358,7 +358,7 @@ const {Clientdata}=props
     </div>
     {/* resume */}
     <div className="py-2 shadow-md hover:shadow-lg rounded-md flex justify-between px-4 text-md font-semibold">
-      <label htmlFor="">resume : </label>
+      <label htmlFor="">resume </label>
       <div>
         <button
           className="btn btn-sm"

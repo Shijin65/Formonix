@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { addClients } from '../services/allApi';
+import {useNavigate} from "react-router-dom"
 
 function FormPage() {
-
+  const Navigate =useNavigate()
   const [clientdetails, setClientdetails] = useState({
     applicant_name: "",
     dob: "",
@@ -482,7 +483,7 @@ function FormPage() {
             <button type="submit" className="btn glass bg-green-600">
               Submit
             </button>
-            <button  type="button" className="btn glass text-sm bg-red-500">
+            <button  type="button" className="btn glass text-sm bg-red-500" onClick={()=>{Navigate("/", { replace: true })}}>
               Cancel
             </button>
           </div>

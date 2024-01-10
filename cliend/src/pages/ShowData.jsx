@@ -45,7 +45,7 @@ function ShowData() {
             <div className="card card-side bg-base-100 shadow-xl max-h-48" key={item.id}>
               <figure>
                 <img
-                  className="max-h-32 rounded-full"
+                  className="max-h-32 rounded-full ms-4"
                   src={`${base_url}/documents/${item.applicant_image}`}
                   alt="client image "
                 />
@@ -55,7 +55,7 @@ function ShowData() {
                 <h2 className="text-lg font-semibold">{item.passport_number}</h2>
                 <div className="card-actions justify-center w-full">
                   <button
-                    className="btn btn-primary lg: md:btn-md sm:btn-sm w-full"
+                    className="btn bg-slate-800 text-white lg: md:btn-md sm:btn-sm w-full"
                     onClick={() => {
                       setitemdata(item)
                       setModalShow(true)
