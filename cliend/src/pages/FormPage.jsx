@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { addClients } from '../services/allApi';
 import {useNavigate} from "react-router-dom"
+import swal from 'sweetalert';
+import ClientNavbar from '../Components/ClientNavbar';
 
 function FormPage() {
   const Navigate =useNavigate()
@@ -83,17 +85,29 @@ function FormPage() {
       if(!result.error){
 
         alert('uploaded successfully')
-        window.location.reload()
+        swal({
+          title: "successfully uploaded",
+          text: "your details haS been successfully uploaded",
+          icon: "success",
+          button: "ok" ,
+        });
+        Navigate("/", { replace: true })
+      }else if(!result){
+        alert("Data Not Send")
+
       }else{
-        alert(result.response.data)
+        alert("Some Thing Went Wrong")
       }
+
     }
 
 
   }
 
   return (
-    <div className="md:mx-14 my-8 mx-8 text-center">
+    <>
+    <ClientNavbar/>
+    <div className="md:mx-14 mt-5 my-8 mx-8 text-center">
       <h1 className="text-center text-2xl font-bold ">FORM</h1>
       <form className="mt-5 mx-5" onSubmit={handleadd}>
         <div className="space-y-12 ">
@@ -489,7 +503,7 @@ function FormPage() {
           </div>
         </div>
       </form>
-    </div>
+    </div></>
   )
 }
 

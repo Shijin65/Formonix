@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ShowModal from "../Components/ShowModal"
 import { getclient } from '../services/allApi'
 import { base_url } from "../services/base_url";
+import {BeatLoader} from "react-spinners"
 function ShowData() {
   const [modalShow, setModalShow] = useState(false);
   const [itemdata,setitemdata]=useState()
@@ -27,7 +28,7 @@ function ShowData() {
       getdata()
   },[])
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div className=" h-screen flex items-center justify-center  -pt-10"><BeatLoader color="#484f4d" /></div>;
   }
   
   return (
