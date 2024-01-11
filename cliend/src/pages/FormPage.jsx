@@ -84,7 +84,6 @@ function FormPage() {
 
       if(!result.error){
 
-        alert('uploaded successfully')
         swal({
           title: "successfully uploaded",
           text: "your details haS been successfully uploaded",
