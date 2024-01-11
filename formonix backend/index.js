@@ -23,7 +23,7 @@ profoserver.use(router)
 
 profoserver.use('/documents',express.static('./documents'))
 
-const PORT=4010|| process.env
+const PORT= process.env.PORT || 4010
 
 profoserver.listen(PORT,()=>{
    console.log(`server is successfully running to port number:${PORT}`);
