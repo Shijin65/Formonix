@@ -10,7 +10,7 @@ function App() {
     <Route path="/" Component={Home} />
     <Route path="/form" Component={FormPage} />
     
-    <Route path="/admin" Component={Admin} />
+    <Route path="/formoad" Component={Admin} />
     </Switch>
    </div>
   );

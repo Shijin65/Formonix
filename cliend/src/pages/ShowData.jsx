@@ -33,8 +33,8 @@ function ShowData() {
   
   return (
     <div className="m-10">
-      <h1 className="font-bold text-center text-2xl">User Data</h1>
-      <h3 className="text-start mt-5 font-semibold text-slate-500">
+      <h1 className="font-bold text-center text-2xl">Client Data</h1>
+      <h3 className="text-start mt-5 font-semibold text-slate-500 mb-4">
         Total : {Clientdata.length}
       </h3>
       <div className="grid gap-4 lg:grid-cols-3 md:grid-cols-2  ">
@@ -44,9 +44,9 @@ function ShowData() {
           return(
           
             <div className="card card-side bg-base-100 shadow-xl max-h-48" key={item.id}>
-              <figure>
+              <figure className="w-40">
                 <img
-                  className="max-h-32 rounded-full ms-4"
+                  className="max-w-  ms-"
                   src={`${base_url}/documents/${item.applicant_image}`}
                   alt="client image "
                 />
