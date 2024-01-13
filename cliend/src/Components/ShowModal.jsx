@@ -1,5 +1,3 @@
-
-import resume from "../assets/Image.png";
 import { useEffect } from 'react';
 import { base_url } from '../services/base_url';
 import {saveAs} from "file-saver"
@@ -28,7 +26,7 @@ const {Clientdata}=props
                   <figure >
                     <img
                       className="max-h-52 rounded-full "
-                      src={`${base_url}/documents/${Clientdata.applicant_image}`}
+                      src={`${base_url}/documents/${Clientdata.applicant_image}`}      
                       alt="applicant image"
                     />
                   </figure>
