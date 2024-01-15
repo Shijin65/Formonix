@@ -3,12 +3,14 @@ import ShowModal from "../Components/ShowModal"
 import { getclient } from '../services/allApi'
 import { base_url } from "../services/base_url";
 import {BeatLoader} from "react-spinners"
+import { useNavigate } from "react-router-dom";
+
 function ShowData() {
   const [modalShow, setModalShow] = useState(false);
   const [itemdata,setitemdata]=useState()
   const [Clientdata,setClientdata]=useState()
   const [isLoading, setIsLoading] = useState(true);
-
+  const Navigate = useNavigate();
 
 
   useEffect(()=>{
@@ -20,6 +22,7 @@ function ShowData() {
         setClientdata(result)
         
       } catch (error) {
+        Navigate("/", { replace: true });
         console.log(error)
 
       }finally {

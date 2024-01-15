@@ -51,7 +51,7 @@ export const commonApi = async (httpMethod, url, reqBody) => {
   } catch (error) {
     // Log or handle the error
     console.error("Error in commonApi:", error);
-    alert("Some Thing Went Wrong")
+    alert("Unable to reach server ")
     // Rethrow the error to be caught by the caller
     throw error;
   }
