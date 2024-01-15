@@ -7,6 +7,12 @@ const cors=require('cors')
 const router=require('./routers/router')
 
 
+// body parser
+const bodyparse=require('body-parser')
+
+
+
+
 
 require('./DB/connection')
 
@@ -18,6 +24,12 @@ profoserver.use(cors())
 profoserver.use(express.json())
 
 profoserver.use(router)
+
+// body parser
+
+profoserver.use(bodyparse.urlencoded({extended:false}))
+
+profoserver.use(bodyparse.json())
 
 // access the document folder
 

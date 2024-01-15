@@ -18,12 +18,12 @@ const storage=multer.diskStorage({
 
 const fileFilter=(req,file,callback)=>{
 
-    if(file.mimetype===`image/png` || file.mimetype===`image/jpg` || file.mimetype===`image/jpeg` || file.mimetype===`application/pdf` ){
+    if(file.mimetype===`application/pdf` ){
         callback(null,true)
 
     }else{
         callback(null,false)
-        return callback(new Error('only png,jpg,jpeg and pdf are allowed'))
+        return callback(new Error('only  pdf files are allowed'))
     }
 
 }
@@ -36,6 +36,8 @@ const fileFilter=(req,file,callback)=>{
 const multerconfig=multer({
     storage,
     fileFilter
+    
+    
 })
 
 

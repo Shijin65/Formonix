@@ -26,7 +26,7 @@ const {Clientdata}=props
                   <figure >
                     <img
                       className="max-h-52 rounded-full "
-                      src={`${base_url}/documents/${Clientdata.applicant_image}`}      
+                      src={`${Clientdata.applicant_image}`}      
                       alt="applicant image"
                     />
                   </figure>
@@ -88,7 +88,7 @@ const {Clientdata}=props
           <div className="modal-box">
             <h3 className="font-bold text-lg">Hello!</h3>
             <p className="py-4">
-              <img src={`${base_url}/documents/${Clientdata.residence_id}`} alt="residenceID" />
+              <img src={`${Clientdata.residence_id}`} alt="residenceID" />
             </p>
             <div className="modal-action">
               <form method="dialog">
@@ -100,7 +100,7 @@ const {Clientdata}=props
         </dialog>
         
           {" "}
-          <button className="btn btn-sm" onClick={()=>{saveAs(`${base_url}/documents/${Clientdata.residence_id}`, `${Clientdata.applicant_name}-residence_id`)}}>Download</button>
+          <button className="btn btn-sm" onClick={()=>{saveAs(`${Clientdata.residence_id}`, `${Clientdata.applicant_name}-residence_id`)}}>Download</button>
         
       </div>
     </div>
@@ -124,7 +124,7 @@ const {Clientdata}=props
             <h3 className="font-bold text-lg">Hello!</h3>
             <p className="py-4">
               <img
-                src={`${base_url}/documents/${Clientdata.applicant_image}`}
+                src={Clientdata.applicant_image}
                 alt="client image"
               />
             </p>
@@ -138,7 +138,7 @@ const {Clientdata}=props
         </dialog>
        
           {" "}
-          <button className="btn btn-sm" onClick={()=>{saveAs(`${base_url}/documents/${Clientdata.applicant_image}`, `${Clientdata.applicant_name}-applicant_image`)}}>Download</button>
+          <button className="btn btn-sm" onClick={()=>{saveAs(`${Clientdata.applicant_image}`, `${Clientdata.applicant_name}-applicant_image`)}}>Download</button>
         
       </div>
     </div>
@@ -161,7 +161,7 @@ const {Clientdata}=props
             <h3 className="font-bold text-lg">Hello!</h3>
             <p className="py-4">
               <img
-                src={`${base_url}/documents/${Clientdata.passport_front}`}
+                src={`${Clientdata.passport_front}`}
                 alt="Passport_front_side"
               />
             </p>
@@ -175,7 +175,7 @@ const {Clientdata}=props
         </dialog>
         
           {" "}
-          <button className="btn btn-sm" onClick={()=>{saveAs(`${base_url}/documents/${Clientdata.passport_front}`, `${Clientdata.applicant_name}-Passport_front_side`)}}>Download</button>
+          <button className="btn btn-sm" onClick={()=>{saveAs(`${Clientdata.passport_front}`, `${Clientdata.applicant_name}-Passport_front_side`)}}>Download</button>
        
       </div>
     </div>
@@ -198,7 +198,7 @@ const {Clientdata}=props
             <h3 className="font-bold text-lg">Hello!</h3>
             <p className="py-4">
               <img
-                src={`${base_url}/documents/${Clientdata.passport_back}`}
+                src={`${Clientdata.passport_back}`}
                 alt="passport_back"
               />
             </p>
@@ -212,7 +212,7 @@ const {Clientdata}=props
         </dialog>
         
           {" "}
-          <button className="btn btn-sm" onClick={()=>{saveAs(`${base_url}/documents/${Clientdata.passport_back}`, `${Clientdata.applicant_name}-passport_back`)}}>Download</button>
+          <button className="btn btn-sm" onClick={()=>{saveAs(`${Clientdata.passport_back}`, `${Clientdata.applicant_name}-passport_back`)}}>Download</button>
         
       </div>
     </div>
@@ -232,7 +232,7 @@ const {Clientdata}=props
           <div className="modal-box">
             <h3 className="font-bold text-lg">Full_Passport</h3>
             <p className="py-4">
-              <img src={`${base_url}/documents/${Clientdata.passport_full}`} alt="passport_full" />
+              <img src={`${Clientdata.passport_full}`} alt="passport_full" />
             </p>
             <div className="modal-action">
               <form method="dialog">
@@ -244,7 +244,7 @@ const {Clientdata}=props
         </dialog>
         
           {" "}
-          <button className="btn btn-sm" onClick={()=>{saveAs(`${base_url}/documents/${Clientdata.passport_full}`, `${Clientdata.applicant_name}-passport_full`)}}>Download</button>
+          <button className="btn btn-sm" onClick={()=>{saveAs(`${Clientdata.passport_full}`, `${Clientdata.applicant_name}-passport_full`)}}>Download</button>
         
       </div>
     </div>
@@ -269,7 +269,7 @@ const {Clientdata}=props
             </h3>
             <p className="py-4">
               <img
-                src={`${base_url}/documents/${Clientdata.expirience_cerificate }`}
+                src={`${Clientdata.expirience_cerificate }`}
                 alt="expirience_cerificate  "
               />
             </p>
@@ -283,7 +283,7 @@ const {Clientdata}=props
         </dialog>
         
           {" "}
-          <button className="btn btn-sm" onClick={()=>{saveAs(`${base_url}/documents/${Clientdata.expirience_cerificate}`, `${Clientdata.applicant_name}-expirience_cerificate`)}}>Download</button>
+          <button className="btn btn-sm" onClick={()=>{saveAs(`${Clientdata.expirience_cerificate}`, `${Clientdata.applicant_name}-expirience_cerificate`)}}>Download</button>
        
       </div>
     </div>
@@ -303,7 +303,7 @@ const {Clientdata}=props
           <div className="modal-box">
             <h3 className="font-bold text-lg">PCC</h3>
             <p className="py-4">
-              <img src={`${base_url}/documents/${Clientdata.pcc}`} alt="residenceID" />
+              <img src={`${Clientdata.pcc}`} alt="residenceID" />
             </p>
             <div className="modal-action">
               <form method="dialog">
@@ -314,7 +314,7 @@ const {Clientdata}=props
           </div>
         </dialog>
         
-          <button className="btn btn-sm" onClick={()=>{saveAs(`${base_url}/documents/${Clientdata.pcc}`, `${Clientdata.applicant_name}-pcc`)}}>Download</button>
+          <button className="btn btn-sm" onClick={()=>{saveAs(`${Clientdata.pcc}`, `${Clientdata.applicant_name}-pcc`)}}>Download</button>
        
       </div>
     </div>
@@ -330,14 +330,14 @@ const {Clientdata}=props
           //     .showModal()
           // }
         >
-          <a href={`${base_url}/documents/${Clientdata.bank_statement}`} target="_blank">view</a>
+          <a href={`${Clientdata.bank_statement}`} target="_blank">view</a>
         </button>
         <dialog id="Bank_Statement" className="modal">
           <div className="modal-box">
             <h3 className="font-bold text-lg">bank_statement</h3>
             <p className="py-4">
               <img
-                src={`${base_url}/documents/${Clientdata.bank_statement}`}
+                src={`${Clientdata.bank_statement}`}
                 alt="bank_statement"
               />
             </p>
@@ -350,7 +350,7 @@ const {Clientdata}=props
           </div>
         </dialog>
        
-          <button className="btn btn-sm"onClick={()=>{saveAs(`${base_url}/documents/${Clientdata.bank_statement}`, `${Clientdata.applicant_name}-bank_statement`)}}>Download</button>
+          <button className="btn btn-sm"onClick={()=>{saveAs(`${Clientdata.bank_statement}`, `${Clientdata.applicant_name}-bank_statement`)}}>Download</button>
         
       </div>
     </div>
@@ -364,7 +364,7 @@ const {Clientdata}=props
           //   document.getElementById("resume").showModal()
           // }
         >
-          <a href={`${base_url}/documents/${Clientdata.resume}`} target="_blank">view</a>
+          <a href={`${Clientdata.resume}`} target="_blank">view</a>
           
         </button>
         <dialog id="resume" className="modal">
@@ -382,7 +382,7 @@ const {Clientdata}=props
           </div>
         </dialog>
     
-          <button className="btn btn-sm" onClick={()=>{saveAs(`${base_url}/documents/${Clientdata.resume}`, `${Clientdata.applicant_name}-resume`)}}>Download</button>
+          <button className="btn btn-sm" onClick={()=>{saveAs(`${Clientdata.resume}`, `${Clientdata.applicant_name}-resume`)}}>Download</button>
         
       </div>
     </div>

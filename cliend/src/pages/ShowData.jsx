@@ -47,7 +47,7 @@ function ShowData() {
               <figure className="w-40">
                 <img
                   className="max-w-  ms-"
-                  src={`${base_url}/documents/${item.applicant_image}`}
+                  src={`${item.applicant_image}`}
                   alt="client image "
                 />
               </figure>
