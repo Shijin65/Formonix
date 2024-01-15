@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
 import ClientNavbar from "../Components/ClientNavbar";
+import image from "../assets/carousel-3.jpg"
 function Home() {
   const Navigate = useNavigate();
 
@@ -21,7 +22,8 @@ function Home() {
             <div className="carousel-item">
               <img
                 className="w-screen min-h-96 max-h-screen image-full"
-                src="https://images.pexels.com/photos/1004584/pexels-photo-1004584.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                src={image}
+                // src="https://images.pexels.com/photos/1004584/pexels-photo-1004584.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                 alt="Image"
               />
               <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
@@ -51,7 +53,7 @@ function Home() {
       {/* Carousel End */}
 
       {/* Footer Start */}
-      <div className="container-fluid bg-dark text-white-50 pt-5 px-sm-3 px-lg-5 ">
+      <div className="container-fluid bg-dark text-white-50 pt-5 px-sm-3 px-lg-5 " style={{fontFamily:"-moz-initial"}}>
         <div className="row ">
           <div className="col-lg-6 col-md-12 mb-3">
             <a href="/" className="navbar-brand">
@@ -59,7 +61,7 @@ function Home() {
                 <span className="text-white">EURO</span>PASS
               </h1>
             </a>
-            <p>
+            <p style={{fontFamily:"-moz-initial"}}>
               Sed ipsum clita tempor ipsum ipsum amet sit ipsum lorem amet
               labore rebum lorem ipsum dolor. No sed vero lorem dolor dolor
             </p>
@@ -92,14 +94,14 @@ function Home() {
             >
               Contact Us
             </h5>
-            <p>
-              <i className="fa fa-map-marker-alt mr-2"></i>123 Street, New York,
+            <p style={{fontFamily:"-moz-initial"}}>
+              <i className="fa fa-map-marker-alt mr-2" ></i>123 Street, New York,
               USA
             </p>
-            <p>
+            <p style={{fontFamily:"-moz-initial"}}>
               <i className="fa fa-phone-alt mr-2"></i>+012 345 67890
             </p>
-            <p>
+            <p style={{fontFamily:"-moz-initial"}}> 
               <i className="fa fa-envelope mr-2"></i>info@example.com
             </p>
           </div>
