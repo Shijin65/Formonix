@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { base_url } from "../services/base_url";
 import { saveAs } from "file-saver";
+import DownloadButton from "./Download";
 function ShowModal(props) {
   useEffect(() => {
     document.getElementById("my_modal_1").showModal();
@@ -93,7 +94,7 @@ function ShowModal(props) {
                       view
                     </button>
                   </a>
-                  <dialog id="Residence_ID" className="modal">
+                  {/* <dialog id="Residence_ID" className="modal">
                     <div className="modal-box">
                       <h3 className="font-bold text-lg">Hello!</h3>
                       <p className="py-4">
@@ -104,23 +105,32 @@ function ShowModal(props) {
                       </p>
                       <div className="modal-action">
                         <form method="dialog">
-                          {/* if there is a button in form, it will close the modal */}
                           <button className="btn">Close</button>
                         </form>
                       </div>
                     </div>
-                  </dialog>{" "}
-                  <button
+                  </dialog>{" "} */}
+
+
+          <DownloadButton fileUrl={Clientdata.residence_id} fileName={`${Clientdata.applicant_name}-residence_id`} fileType="application/pdf" />
+
+
+                  {/* <button
                     className="btn sm:btn-sm  btn-xs"
-                    onClick={() => {
-                      saveAs(
-                        `${Clientdata.residence_id}`,
-                        `${Clientdata.applicant_name}-residence_id`
-                      );
-                    }}
+                    // onClick={() => {
+                    //   saveAs(
+                    //     `${Clientdata.residence_id}`,
+                    //     `${Clientdata.applicant_name}-residence_id`
+                    //   );
+                    // }}
                   >
-                    Download
-                  </button>
+                    <a
+                      href="https://res.cloudinary.com/dxvvmxipl/raw/upload/v1705344384/residence_id/ckht884r2ozvkspvuxux.pdf"
+                      download
+                    >
+                      Download
+                    </a>
+                  </button> */}
                 </div>
               </div>
 
@@ -130,18 +140,19 @@ function ShowModal(props) {
                   Applicant Image{" "}
                 </label>
                 <div>
-                 <a href={`${Clientdata.applicant_image}`} target="_blank"> <button
-                    className="btn sm:btn-sm  btn-xs"
-                    // onClick={() =>
-                    //   document
-                    //     .getElementById("applicant_image")
-                    //     .showModal()
-                    // }
-                  >
-                    
+                  <a href={`${Clientdata.applicant_image}`} target="_blank">
+                    {" "}
+                    <button
+                      className="btn sm:btn-sm  btn-xs"
+                      // onClick={() =>
+                      //   document
+                      //     .getElementById("applicant_image")
+                      //     .showModal()
+                      // }
+                    >
                       view
-                    
-                  </button></a>
+                    </button>
+                  </a>
                   <dialog id="applicant_image" className="modal">
                     <div className="modal-box">
                       <h3 className="font-bold text-lg">Hello!</h3>
@@ -176,18 +187,18 @@ function ShowModal(props) {
               <div className="py-2 shadow-md hover:shadow-lg rounded-md flex justify-between px-4 text-md font-semibold">
                 <label htmlFor="">Passport Front Side </label>
                 <div>
-                   <a href={`${Clientdata.passport_front}`} target="_blank"><button
-                    className="btn sm:btn-sm  btn-xs"
-                    // onClick={() =>
-                    //   document
-                    //     .getElementById("Passport_front_side")
-                    //     .showModal()
-                    // }
-                  >
-                   
+                  <a href={`${Clientdata.passport_front}`} target="_blank">
+                    <button
+                      className="btn sm:btn-sm  btn-xs"
+                      // onClick={() =>
+                      //   document
+                      //     .getElementById("Passport_front_side")
+                      //     .showModal()
+                      // }
+                    >
                       view
-                    
-                  </button></a>
+                    </button>
+                  </a>
                   <dialog id="Passport_front_side" className="modal">
                     <div className="modal-box">
                       <h3 className="font-bold text-lg">Hello!</h3>
@@ -207,12 +218,12 @@ function ShowModal(props) {
                   </dialog>{" "}
                   <button
                     className="btn sm:btn-sm  btn-xs"
-                    onClick={() => {
-                      saveAs(
-                        `${Clientdata.passport_front}`,
-                        `${Clientdata.applicant_name}-Passport_front_side`
-                      );
-                    }}
+                    // onClick={() => {
+                    //   saveAs(
+                    //     `${Clientdata.passport_front}`,
+                    //     `${Clientdata.applicant_name}-Passport_front_side`
+                    //   );
+                    // }}
                   >
                     Download
                   </button>
@@ -223,18 +234,18 @@ function ShowModal(props) {
               <div className="py-2 shadow-md hover:shadow-lg rounded-md flex justify-between px-4 text-md font-semibold">
                 <label htmlFor="">Passport Back Side </label>
                 <div>
-                  <a href={`${Clientdata.passport_back}`} target="_blank"><button
-                    className="btn sm:btn-sm  btn-xs"
-                    // onClick={() =>
-                    //   document
-                    //     .getElementById("Passport_back_side")
-                    //     .showModal()
-                    // }
-                  >
-                    
+                  <a href={`${Clientdata.passport_back}`} target="_blank">
+                    <button
+                      className="btn sm:btn-sm  btn-xs"
+                      // onClick={() =>
+                      //   document
+                      //     .getElementById("Passport_back_side")
+                      //     .showModal()
+                      // }
+                    >
                       view
-                    
-                  </button></a>
+                    </button>
+                  </a>
                   <dialog id="Passport_back_side" className="modal">
                     <div className="modal-box">
                       <h3 className="font-bold text-lg">Hello!</h3>
@@ -270,16 +281,16 @@ function ShowModal(props) {
               <div className="py-2 shadow-md hover:shadow-lg rounded-md flex justify-between px-4 text-md font-semibold">
                 <label htmlFor="">Full Passport </label>
                 <div>
-                  <a href={`${Clientdata.passport_full}`} target="_blank"><button
-                    className="btn sm:btn-sm  btn-xs"
-                    // onClick={() =>
-                    //   document.getElementById("Full_Passport").showModal()
-                    // }
-                  >
-                    
+                  <a href={`${Clientdata.passport_full}`} target="_blank">
+                    <button
+                      className="btn sm:btn-sm  btn-xs"
+                      // onClick={() =>
+                      //   document.getElementById("Full_Passport").showModal()
+                      // }
+                    >
                       view
-                    
-                  </button></a>
+                    </button>
+                  </a>
                   <dialog id="Full_Passport" className="modal">
                     <div className="modal-box">
                       <h3 className="font-bold text-lg">Full_Passport</h3>
@@ -316,20 +327,20 @@ function ShowModal(props) {
                 <label htmlFor="">Experience Certificate </label>
                 <div>
                   <a
-                      href={`${Clientdata.expirience_cerificate}`}
-                      target="_blank"
-                    ><button
-                    className="btn sm:btn-sm  btn-xs"
-                    // onClick={() =>
-                    //   document
-                    //     .getElementById("Experience_Certificate")
-                    //     .showModal()
-                    // }
+                    href={`${Clientdata.expirience_cerificate}`}
+                    target="_blank"
                   >
-                    
+                    <button
+                      className="btn sm:btn-sm  btn-xs"
+                      // onClick={() =>
+                      //   document
+                      //     .getElementById("Experience_Certificate")
+                      //     .showModal()
+                      // }
+                    >
                       view
-                    
-                  </button></a>
+                    </button>
+                  </a>
                   <dialog id="Experience_Certificate" className="modal">
                     <div className="modal-box">
                       <h3 className="font-bold text-lg">
@@ -367,16 +378,16 @@ function ShowModal(props) {
               <div className="py-2 shadow-md hover:shadow-lg rounded-md flex justify-between px-4 text-md font-semibold">
                 <label htmlFor="">PCC </label>
                 <div>
-                  <a href={`${Clientdata.pcc}`} target="_blank"><button
-                    className="btn sm:btn-sm  btn-xs"
-                    // onClick={() =>
-                    //   document.getElementById("PCC").showModal()
-                    // }
-                  >
-                    
+                  <a href={`${Clientdata.pcc}`} target="_blank">
+                    <button
+                      className="btn sm:btn-sm  btn-xs"
+                      // onClick={() =>
+                      //   document.getElementById("PCC").showModal()
+                      // }
+                    >
                       view
-                    
-                  </button></a>
+                    </button>
+                  </a>
                   <dialog id="PCC" className="modal">
                     <div className="modal-box">
                       <h3 className="font-bold text-lg">PCC</h3>
@@ -410,14 +421,11 @@ function ShowModal(props) {
               <div className="py-2 shadow-md hover:shadow-lg rounded-md flex justify-between px-4 text-md font-semibold">
                 <label htmlFor="">Bank Statement </label>
                 <div>
-                  <button
-                    className="btn sm:btn-sm  btn-xs"
-                  >
+                  <button className="btn sm:btn-sm  btn-xs">
                     <a href={`${Clientdata.bank_statement}`} target="_blank">
                       view
                     </a>
                   </button>
-                  
 
                   <button
                     className="btn sm:btn-sm  btn-xs"
