@@ -15,10 +15,13 @@ cloudinary.config({
 exports.documents=(file,folder)=>{
     return new Promise (resolve=>{
         cloudinary.uploader.upload(file,(result)=>{
+            // Replace "http" with "https" in the Cloudinary URL
+            const httpsUrl = result.url.replace('http', 'https');
+
             resolve({
-                url:result.url,
-                id:result.public_id
-            })
+                url: httpsUrl,
+                id: result.public_id
+            });
         },{
             resource_type:"raw",
             folder:folder

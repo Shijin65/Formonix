@@ -34,7 +34,7 @@ function Home() {
                   <h1 className="display-3 text-white mb-md-4">
                     Discover Amazing Places With Us
                   </h1>
-                  <a
+                  <button
                     href=""
                     className="btn btn-primary py-md-3 px-md-5 mt-2"
                     onClick={() => {
@@ -42,7 +42,7 @@ function Home() {
                     }}
                   >
                     Get Started
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>

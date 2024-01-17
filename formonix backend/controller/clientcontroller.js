@@ -16,6 +16,7 @@ exports.addClient = async (req, res) => {
         const bank_statement_url = await cloudinary.documents(fileDetails.bank_statement[0].path, 'bank_statement');
         const resume_url = await cloudinary.documents(fileDetails.resume[0].path, 'resume');
 
+        const https_residence_url=residence_id_url.url
         // Extract other fields from req.body
         const { applicant_name, dob, address, state, country, country_apply, passport_number, job_category } = req.body;
 

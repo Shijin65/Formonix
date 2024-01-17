@@ -113,9 +113,9 @@ function FormPage() {
       <ClientNavbar />
       <div className="mt-5 my-8  text-center" style={{opacity:loading?"50%":""}}> 
         <h1 className="text-center text-2xl font-bold ">FORM</h1>
-        <form className="mt-5 mx-5 " onSubmit={handleadd}>
+        <form className="mt-5 sm:mx-5  lg:ms-10" onSubmit={handleadd}>
           <div className="space-y-12 ">
-            <div className=" border-gray-900/10 pb-12">
+            <div className=" border-gray-900/10 pb-12 ">
               <h2 className="text-base font-semibold leading-7 text-gray-900">
                 Personal Information
               </h2>
@@ -123,7 +123,7 @@ function FormPage() {
               <div className="mt-10 grid lg:grid-cols-3 md:grid-cols-2 gap-x-5 gap-y-4 content-center border-b-2 pb-8  contents-center justify-center ">
                 {/* applicant name */}
 
-                <div className="text-left">
+                <div className="text-left sm:w-96 md:w-auto">
                   <label
                     htmlFor="first-name"
                     className="block text-sm  font-semibold leading-6 text-gray-900"
@@ -149,7 +149,7 @@ function FormPage() {
                 </div>
 
                 {/* Date of birth */}
-                <div className="text-left">
+                <div className="text-left sm:w-96 md:w-auto">
                   <label
                     htmlFor="first-name"
                     className="block text-sm font-medium leading-6 text-gray-900"
@@ -175,7 +175,7 @@ function FormPage() {
                 </div>
 
                 {/* passport_number*/}
-                <div className="text-left">
+                <div className="text-left sm:w-96 md:w-auto">
                   <label
                     htmlFor="first-name"
                     className="block text-sm font-medium leading-6 text-gray-900"
@@ -201,7 +201,7 @@ function FormPage() {
                 </div>
 
                 {/* Address */}
-                <div className="text-left">
+                <div className="text-left sm:w-96 md:w-auto">
                   <label
                     htmlFor="first-name"
                     className="block text-sm font-medium leading-6 text-gray-900"
@@ -226,7 +226,7 @@ function FormPage() {
                 </div>
 
                 {/* State */}
-                <div className="text-left">
+                <div className="text-left sm:w-96 md:w-auto">
                   <label
                     htmlFor="first-name"
                     className="block text-sm font-medium leading-6 text-gray-900"
@@ -252,7 +252,7 @@ function FormPage() {
                 </div>
 
                 {/* Country */}
-                <div className="text-left">
+                <div className="text-left sm:w-96 md:w-auto">
                   <label
                     htmlFor="first-name"
                     className="block text-sm font-medium leading-6 text-gray-900"
@@ -282,7 +282,7 @@ function FormPage() {
                 </div>
 
                 {/* Country To Apply */}
-                <div className="text-left">
+                <div className="text-left sm:w-96 md:w-auto">
                   <label
                     htmlFor="first-name"
                     className="block text-sm font-medium leading-6 text-gray-900"
@@ -311,7 +311,7 @@ function FormPage() {
                 </div>
 
                 {/* Job Category */}
-                <div className="text-left">
+                <div className="text-left sm:w-96 md:w-auto">
                   <label
                     htmlFor="first-name"
                     className="block text-sm font-medium leading-6 text-gray-900"
@@ -347,7 +347,7 @@ function FormPage() {
               <div className=" grid lg:grid-cols-3 md:grid-cols-2 gap-x-5 gap-y-4 content-center">
                 {/* residence_id
                  */}
-                <div className="text-left">
+                <div className="text-left sm:w-96 md:w-auto">
                   <label
                     htmlFor="first-name"
                     className="block text-sm font-medium leading-6 text-gray-900"
@@ -373,7 +373,7 @@ function FormPage() {
                 </div>
 
                 {/* Applicant Image */}
-                <div className="text-left">
+                <div className="text-left sm:w-96 md:w-auto">
                   <label
                     htmlFor="applicant_image"
                     className="block text-sm font-medium leading-6 text-gray-900"
@@ -399,7 +399,7 @@ function FormPage() {
                 </div>
 
                 {/* Passport front side */}
-                <div className="text-left">
+                <div className="text-left sm:w-96 md:w-auto">
                   <label
                     htmlFor="first-name"
                     className="block text-sm font-medium leading-6 text-gray-900"
@@ -425,7 +425,7 @@ function FormPage() {
                 </div>
 
                 {/* Passport back side */}
-                <div className="text-left">
+                <div className="text-left sm:w-96 md:w-auto">
                   <label
                     htmlFor="Passport back side"
                     className="block text-sm font-medium leading-6 text-gray-900"
@@ -451,7 +451,7 @@ function FormPage() {
                 </div>
 
                 {/* passport_full */}
-                <div className="text-left">
+                <div className="text-left sm:w-96 md:w-auto">
                   <label
                     htmlFor="passport_full"
                     className="block text-sm font-medium leading-6 text-gray-900"
@@ -477,7 +477,7 @@ function FormPage() {
                 </div>
 
                 {/* expirience_cerificate */}
-                <div className="text-left">
+                <div className="text-left sm:w-96 md:w-auto">
                   <label
                     htmlFor="first-name"
                     className="block text-sm font-medium leading-6 text-gray-900"
@@ -503,7 +503,7 @@ function FormPage() {
                 </div>
 
                 {/* pcc */}
-                <div className="text-left">
+                <div className="text-left sm:w-96 md:w-auto">
                   <label
                     htmlFor="pcc"
                     className="block text-sm font-medium leading-6 text-gray-900"
@@ -529,7 +529,7 @@ function FormPage() {
                 </div>
 
                 {/* Bank_Statement */}
-                <div className="text-left">
+                <div className="text-left sm:w-96 md:w-auto">
                   <label
                     htmlFor="bank_statement"
                     className="block text-sm font-medium leading-6 text-gray-900"
@@ -556,7 +556,7 @@ function FormPage() {
 
                 {/* resume */}
 
-                <div className="text-left">
+                <div className="text-left sm:w-96 md:w-auto">
                   <label
                     htmlFor="resume"
                     className="block text-sm font-medium leading-6 text-gray-900"

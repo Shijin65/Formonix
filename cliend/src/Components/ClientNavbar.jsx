@@ -46,9 +46,6 @@ function ClientNavbar() {
                 <span className="text-dark">EURO</span>PASS
               </h1>
             </a>
-            {/* <button type="button" className="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-        <span className="navbar-toggler-icon"></span>
-      </button> */}
             <div className="navbar-end flex  ml-auto py-0">
               <a href="/" className="nav-item nav-link active font-semibold">
                 HOME

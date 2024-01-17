@@ -26,15 +26,6 @@ function ShowModal(props) {
               </button>
             </form>
           </div>
-          {/* <div className="w-full  flex justify-center">
-                  <figure >
-                    <img
-                      className="max-h-52 rounded-full "
-                      src={`${Clientdata.applicant_image}`}      
-                      alt="applicant image"
-                    />
-                  </figure>
-                </div> */}
           <h3 className="font-bold text-sm sm:text-lg uppercase">
             {Clientdata.applicant_name}
           </h3>
@@ -43,7 +34,7 @@ function ShowModal(props) {
             {/*  User Details */}
             <div className="text-start sm:ms-14 font-medium text-xs sm:text-lg gap-5 flex flex-col">
               <p>
-                <span className="font-bold">Applicant Name :</span>{" "}
+                <span className="font-bold">Applicant Name :</span>
                 {Clientdata.applicant_name}
               </p>
               <p>
@@ -55,7 +46,7 @@ function ShowModal(props) {
                 {Clientdata.passport_number}
               </p>
               <p>
-                <span className="font-bold">Address :</span>{" "}
+                <span className="font-bold">Address :</span>
                 {Clientdata.address}
               </p>
               <p>
@@ -77,349 +68,129 @@ function ShowModal(props) {
             </div>
 
             {/* Document */}
+
             <div className="mt-3 flex flex-col gap-4">
               {/* Residence ID */}
+
               <div className="py-2 shadow-md hover:shadow-lg rounded-md flex justify-between px-4 sm:text-md font-semibold ">
-                <label className="sm:text-base text-sm" htmlFor="">
+                <label className="sm:text-base text-sm">
                   Residence ID{" "}
                 </label>
                 <div>
                   <a href={`${Clientdata.residence_id}`} target="_blank">
-                    <button
-                      className="btn sm:btn-sm  btn-xs"
-                      // onClick={() =>
-                      //   document.getElementById("Residence_ID").showModal()
-                      // }
-                    >
-                      view
-                    </button>
+                    <button className="btn sm:btn-sm  btn-xs">view</button>
                   </a>
-                  {/* <dialog id="Residence_ID" className="modal">
-                    <div className="modal-box">
-                      <h3 className="font-bold text-lg">Hello!</h3>
-                      <p className="py-4">
-                        <img
-                          src={`${Clientdata.residence_id}`}
-                          alt="residenceID"
-                        />
-                      </p>
-                      <div className="modal-action">
-                        <form method="dialog">
-                          <button className="btn">Close</button>
-                        </form>
-                      </div>
-                    </div>
-                  </dialog>{" "} */}
 
-
-          <DownloadButton fileUrl={Clientdata.residence_id} fileName={`${Clientdata.applicant_name}-residence_id`} fileType="application/pdf" />
-
-
-                  {/* <button
-                    className="btn sm:btn-sm  btn-xs"
-                    // onClick={() => {
-                    //   saveAs(
-                    //     `${Clientdata.residence_id}`,
-                    //     `${Clientdata.applicant_name}-residence_id`
-                    //   );
-                    // }}
-                  >
-                    <a
-                      href="https://res.cloudinary.com/dxvvmxipl/raw/upload/v1705344384/residence_id/ckht884r2ozvkspvuxux.pdf"
-                      download
-                    >
-                      Download
-                    </a>
-                  </button> */}
+                  <DownloadButton
+                    fileUrl={Clientdata.residence_id}
+                    fileName={`${Clientdata.applicant_name}-residence_id`}
+                    fileType="application/pdf"
+                  />
                 </div>
               </div>
 
               {/* Applicant Image */}
               <div className="py-2 shadow-md hover:shadow-lg rounded-md flex justify-between px-4 text-md font-semibold">
-                <label className="sm:text-base text-sm" htmlFor="">
+                <label className="sm:text-base text-sm">
                   Applicant Image{" "}
                 </label>
                 <div>
                   <a href={`${Clientdata.applicant_image}`} target="_blank">
                     {" "}
-                    <button
-                      className="btn sm:btn-sm  btn-xs"
-                      // onClick={() =>
-                      //   document
-                      //     .getElementById("applicant_image")
-                      //     .showModal()
-                      // }
-                    >
-                      view
-                    </button>
+                    <button className="btn sm:btn-sm  btn-xs">view</button>
                   </a>
-                  <dialog id="applicant_image" className="modal">
-                    <div className="modal-box">
-                      <h3 className="font-bold text-lg">Hello!</h3>
-                      <p className="py-4">
-                        <img
-                          src={Clientdata.applicant_image}
-                          alt="client image"
-                        />
-                      </p>
-                      <div className="modal-action">
-                        <form method="dialog">
-                          <button className="btn">Close</button>
-                        </form>
-                      </div>
-                    </div>
-                  </dialog>{" "}
-                  <button
-                    className="btn sm:btn-sm  btn-xs"
-                    onClick={() => {
-                      saveAs(
-                        `${Clientdata.applicant_image}`,
-                        `${Clientdata.applicant_name}-applicant_image`
-                      );
-                    }}
-                  >
-                    Download
-                  </button>
+                  <DownloadButton
+                    fileUrl={Clientdata.applicant_image}
+                    fileName={`${Clientdata.applicant_name}-applicant_image`}
+                    fileType="application/pdf"
+                  />
                 </div>
               </div>
 
               {/* Passport Front Side */}
               <div className="py-2 shadow-md hover:shadow-lg rounded-md flex justify-between px-4 text-md font-semibold">
-                <label htmlFor="">Passport Front Side </label>
+                <label>Passport Front Side </label>
                 <div>
                   <a href={`${Clientdata.passport_front}`} target="_blank">
-                    <button
-                      className="btn sm:btn-sm  btn-xs"
-                      // onClick={() =>
-                      //   document
-                      //     .getElementById("Passport_front_side")
-                      //     .showModal()
-                      // }
-                    >
-                      view
-                    </button>
+                    <button className="btn sm:btn-sm  btn-xs">view</button>
                   </a>
-                  <dialog id="Passport_front_side" className="modal">
-                    <div className="modal-box">
-                      <h3 className="font-bold text-lg">Hello!</h3>
-                      <p className="py-4">
-                        <img
-                          src={`${Clientdata.passport_front}`}
-                          alt="Passport_front_side"
-                        />
-                      </p>
-                      <div className="modal-action">
-                        <form method="dialog">
-                          {/* if there is a button in form, it will close the modal */}
-                          <button className="btn">Close</button>
-                        </form>
-                      </div>
-                    </div>
-                  </dialog>{" "}
-                  <button
-                    className="btn sm:btn-sm  btn-xs"
-                    // onClick={() => {
-                    //   saveAs(
-                    //     `${Clientdata.passport_front}`,
-                    //     `${Clientdata.applicant_name}-Passport_front_side`
-                    //   );
-                    // }}
-                  >
-                    Download
-                  </button>
+
+                  <DownloadButton
+                    fileUrl={Clientdata.passport_front}
+                    fileName={`${Clientdata.applicant_name}-passport_front`}
+                    fileType="application/pdf"
+                  />
                 </div>
               </div>
 
               {/* Passport Back Side */}
               <div className="py-2 shadow-md hover:shadow-lg rounded-md flex justify-between px-4 text-md font-semibold">
-                <label htmlFor="">Passport Back Side </label>
+                <label>Passport Back Side </label>
                 <div>
                   <a href={`${Clientdata.passport_back}`} target="_blank">
-                    <button
-                      className="btn sm:btn-sm  btn-xs"
-                      // onClick={() =>
-                      //   document
-                      //     .getElementById("Passport_back_side")
-                      //     .showModal()
-                      // }
-                    >
-                      view
-                    </button>
+                    <button className="btn sm:btn-sm  btn-xs">view</button>
                   </a>
-                  <dialog id="Passport_back_side" className="modal">
-                    <div className="modal-box">
-                      <h3 className="font-bold text-lg">Hello!</h3>
-                      <p className="py-4">
-                        <img
-                          src={`${Clientdata.passport_back}`}
-                          alt="passport_back"
-                        />
-                      </p>
-                      <div className="modal-action">
-                        <form method="dialog">
-                          {/* if there is a button in form, it will close the modal */}
-                          <button className="btn">Close</button>
-                        </form>
-                      </div>
-                    </div>
-                  </dialog>{" "}
-                  <button
-                    className="btn sm:btn-sm  btn-xs"
-                    onClick={() => {
-                      saveAs(
-                        `${Clientdata.passport_back}`,
-                        `${Clientdata.applicant_name}-passport_back`
-                      );
-                    }}
-                  >
-                    Download
-                  </button>
+
+                  <DownloadButton
+                    fileUrl={Clientdata.passport_back}
+                    fileName={`${Clientdata.applicant_name}-passport_back`}
+                    fileType="application/pdf"
+                  />
                 </div>
               </div>
 
               {/* Full Passport */}
               <div className="py-2 shadow-md hover:shadow-lg rounded-md flex justify-between px-4 text-md font-semibold">
-                <label htmlFor="">Full Passport </label>
+                <label>Full Passport </label>
                 <div>
                   <a href={`${Clientdata.passport_full}`} target="_blank">
-                    <button
-                      className="btn sm:btn-sm  btn-xs"
-                      // onClick={() =>
-                      //   document.getElementById("Full_Passport").showModal()
-                      // }
-                    >
-                      view
-                    </button>
+                    <button className="btn sm:btn-sm  btn-xs">view</button>
                   </a>
-                  <dialog id="Full_Passport" className="modal">
-                    <div className="modal-box">
-                      <h3 className="font-bold text-lg">Full_Passport</h3>
-                      <p className="py-4">
-                        <img
-                          src={`${Clientdata.passport_full}`}
-                          alt="passport_full"
-                        />
-                      </p>
-                      <div className="modal-action">
-                        <form method="dialog">
-                          {/* if there is a button in form, it will close the modal */}
-                          <button className="btn">Close</button>
-                        </form>
-                      </div>
-                    </div>
-                  </dialog>{" "}
-                  <button
-                    className="btn sm:btn-sm  btn-xs"
-                    onClick={() => {
-                      saveAs(
-                        `${Clientdata.passport_full}`,
-                        `${Clientdata.applicant_name}-passport_full`
-                      );
-                    }}
-                  >
-                    Download
-                  </button>
+
+                  <DownloadButton
+                    fileUrl={Clientdata.passport_full}
+                    fileName={`${Clientdata.applicant_name}-passport_full`}
+                    fileType="application/pdf"
+                  />
                 </div>
               </div>
 
               {/* Experience Certificate */}
               <div className="py-2 shadow-md hover:shadow-lg rounded-md flex justify-between px-4 text-md font-semibold">
-                <label htmlFor="">Experience Certificate </label>
+                <label>Experience Certificate </label>
                 <div>
                   <a
                     href={`${Clientdata.expirience_cerificate}`}
                     target="_blank"
                   >
-                    <button
-                      className="btn sm:btn-sm  btn-xs"
-                      // onClick={() =>
-                      //   document
-                      //     .getElementById("Experience_Certificate")
-                      //     .showModal()
-                      // }
-                    >
-                      view
-                    </button>
+                    <button className="btn sm:btn-sm  btn-xs">view</button>
                   </a>
-                  <dialog id="Experience_Certificate" className="modal">
-                    <div className="modal-box">
-                      <h3 className="font-bold text-lg">
-                        Experience_Certificate
-                      </h3>
-                      <p className="py-4">
-                        <img
-                          src={`${Clientdata.expirience_cerificate}`}
-                          alt="expirience_cerificate  "
-                        />
-                      </p>
-                      <div className="modal-action">
-                        <form method="dialog">
-                          {/* if there is a button in form, it will close the modal */}
-                          <button className="btn">Close</button>
-                        </form>
-                      </div>
-                    </div>
-                  </dialog>{" "}
-                  <button
-                    className="btn sm:btn-sm  btn-xs"
-                    onClick={() => {
-                      saveAs(
-                        `${Clientdata.expirience_cerificate}`,
-                        `${Clientdata.applicant_name}-expirience_cerificate`
-                      );
-                    }}
-                  >
-                    Download
-                  </button>
+                  <DownloadButton
+                    fileUrl={Clientdata.expirience_cerificate}
+                    fileName={`${Clientdata.applicant_name}-expirience_cerificate`}
+                    fileType="application/pdf"
+                  />
                 </div>
               </div>
 
               {/* PCC */}
               <div className="py-2 shadow-md hover:shadow-lg rounded-md flex justify-between px-4 text-md font-semibold">
-                <label htmlFor="">PCC </label>
+                <label>PCC </label>
                 <div>
                   <a href={`${Clientdata.pcc}`} target="_blank">
-                    <button
-                      className="btn sm:btn-sm  btn-xs"
-                      // onClick={() =>
-                      //   document.getElementById("PCC").showModal()
-                      // }
-                    >
-                      view
-                    </button>
+                    <button className="btn sm:btn-sm  btn-xs">view</button>
                   </a>
-                  <dialog id="PCC" className="modal">
-                    <div className="modal-box">
-                      <h3 className="font-bold text-lg">PCC</h3>
-                      <p className="py-4">
-                        <img src={`${Clientdata.pcc}`} alt="residenceID" />
-                      </p>
-                      <div className="modal-action">
-                        <form method="dialog">
-                          {/* if there is a button in form, it will close the modal */}
-                          <button className="btn">Close</button>
-                        </form>
-                      </div>
-                    </div>
-                  </dialog>
-
-                  <button
-                    className="btn sm:btn-sm  btn-xs"
-                    onClick={() => {
-                      saveAs(
-                        `${Clientdata.pcc}`,
-                        `${Clientdata.applicant_name}-pcc`
-                      );
-                    }}
-                  >
-                    Download
-                  </button>
+                  <DownloadButton
+                    fileUrl={Clientdata.pcc}
+                    fileName={`${Clientdata.applicant_name}-pcc`}
+                    fileType="application/pdf"
+                  />
                 </div>
               </div>
 
               {/* Bank Statement */}
               <div className="py-2 shadow-md hover:shadow-lg rounded-md flex justify-between px-4 text-md font-semibold">
-                <label htmlFor="">Bank Statement </label>
+                <label>Bank Statement </label>
                 <div>
                   <button className="btn sm:btn-sm  btn-xs">
                     <a href={`${Clientdata.bank_statement}`} target="_blank">
@@ -427,28 +198,27 @@ function ShowModal(props) {
                     </a>
                   </button>
 
-                  <button
-                    className="btn sm:btn-sm  btn-xs"
-                    onClick={() => {
-                      saveAs(
-                        `${Clientdata.bank_statement}`,
-                        `${Clientdata.applicant_name}-bank_statement`
-                      );
-                    }}
-                  >
-                    Download
-                  </button>
+                  <DownloadButton
+                    fileUrl={Clientdata.bank_statement}
+                    fileName={`${Clientdata.applicant_name}-bank_statement`}
+                    fileType="application/pdf"
+                  />
                 </div>
               </div>
 
               {/* resume */}
               <div className="py-2 shadow-md hover:shadow-lg rounded-md flex justify-between px-4 text-md font-semibold">
-                <label htmlFor="">resume </label>
+                <label>resume </label>
                 <div>
                   <a href={`${Clientdata.resume}`} target="_blank">
                     <button className="btn sm:btn-sm  btn-xs">view</button>
                   </a>
-                  <button
+                  <DownloadButton
+                    fileUrl={Clientdata.resume}
+                    fileName={`${Clientdata.applicant_name}-resume`}
+                    fileType="application/pdf"
+                  />
+                                    <button
                     className="btn sm:btn-sm  btn-xs"
                     onClick={() => {
                       saveAs(
@@ -459,9 +229,9 @@ function ShowModal(props) {
                   >
                     Download
                   </button>
+
                 </div>
               </div>
-              {/* </div> */}
             </div>
           </div>
           <div className="modal-action">
