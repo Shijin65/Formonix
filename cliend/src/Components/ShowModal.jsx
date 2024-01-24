@@ -46,6 +46,14 @@ function ShowModal(props) {
                 {Clientdata.passport_number}
               </p>
               <p>
+                <span className="font-bold">Contact: </span>
+                {Clientdata.contact}
+              </p>
+              <p>
+                <span className="font-bold"> Email : </span>
+                {Clientdata.email}
+              </p>
+              <p>
                 <span className="font-bold">Address :</span>
                 {Clientdata.address}
               </p>
@@ -72,7 +80,7 @@ function ShowModal(props) {
             <div className="mt-3 flex flex-col gap-4">
               {/* Residence ID */}
 
-              <div className="py-2 shadow-md hover:shadow-lg rounded-md flex justify-between px-4 sm:text-md font-semibold ">
+              {Clientdata.residence_id ?<div className="py-2 shadow-md hover:shadow-lg rounded-md flex justify-between px-4 sm:text-md font-semibold ">
                 <label className="sm:text-base text-sm">
                   Residence ID{" "}
                 </label>
@@ -87,7 +95,7 @@ function ShowModal(props) {
                     fileType="application/pdf"
                   />
                 </div>
-              </div>
+              </div>:""}
 
               {/* Applicant Image */}
               <div className="py-2 shadow-md hover:shadow-lg rounded-md flex justify-between px-4 text-md font-semibold">
@@ -156,6 +164,7 @@ function ShowModal(props) {
               </div>
 
               {/* Experience Certificate */}
+              {Clientdata.expirience_cerificate ? 
               <div className="py-2 shadow-md hover:shadow-lg rounded-md flex justify-between px-4 text-md font-semibold">
                 <label>Experience Certificate </label>
                 <div>
@@ -171,10 +180,10 @@ function ShowModal(props) {
                     fileType="application/pdf"
                   />
                 </div>
-              </div>
+              </div>:""}
 
               {/* PCC */}
-              <div className="py-2 shadow-md hover:shadow-lg rounded-md flex justify-between px-4 text-md font-semibold">
+              { Clientdata.pcc ? <div className="py-2 shadow-md hover:shadow-lg rounded-md flex justify-between px-4 text-md font-semibold">
                 <label>PCC </label>
                 <div>
                   <a href={`${Clientdata.pcc}`} target="_blank">
@@ -186,10 +195,10 @@ function ShowModal(props) {
                     fileType="application/pdf"
                   />
                 </div>
-              </div>
+              </div>:""}
 
               {/* Bank Statement */}
-              <div className="py-2 shadow-md hover:shadow-lg rounded-md flex justify-between px-4 text-md font-semibold">
+              {Clientdata.bank_statement ?<div className="py-2 shadow-md hover:shadow-lg rounded-md flex justify-between px-4 text-md font-semibold">
                 <label>Bank Statement </label>
                 <div>
                   <button className="btn sm:btn-sm  btn-xs">
@@ -204,10 +213,10 @@ function ShowModal(props) {
                     fileType="application/pdf"
                   />
                 </div>
-              </div>
+              </div>:""}
 
               {/* resume */}
-              <div className="py-2 shadow-md hover:shadow-lg rounded-md flex justify-between px-4 text-md font-semibold">
+              {Clientdata.resume ?<div className="py-2 shadow-md hover:shadow-lg rounded-md flex justify-between px-4 text-md font-semibold">
                 <label>resume </label>
                 <div>
                   <a href={`${Clientdata.resume}`} target="_blank">
@@ -231,7 +240,7 @@ function ShowModal(props) {
                   </button>
 
                 </div>
-              </div>
+              </div>:""}
             </div>
           </div>
           <div className="modal-action">

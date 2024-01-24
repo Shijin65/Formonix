@@ -9,7 +9,6 @@ function App() {
     <Switch>
     <Route path="/" Component={Home} />
     <Route path="/form" Component={FormPage} />
-    
     <Route path="/formoad" Component={Admin} />
     </Switch>
    </div>
