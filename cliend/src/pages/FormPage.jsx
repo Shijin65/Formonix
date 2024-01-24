@@ -11,6 +11,8 @@ function FormPage() {
     applicant_name: "",
     dob: "",
     address: "",
+    contact:"",
+    email:"",
     state: "",
     country: "",
     country_apply: "",
@@ -26,7 +28,7 @@ function FormPage() {
     bank_statement: "",
     resume: "",
   });
-  // console.log(clientdetails);
+  console.log(clientdetails);
 
   const handleadd = async (e) => {
     e.preventDefault();
@@ -34,6 +36,8 @@ function FormPage() {
     const {
       applicant_name,
       dob,
+      contact,
+      email,
       address,
       state,
       country,
@@ -54,6 +58,8 @@ function FormPage() {
     if (
       !applicant_name ||
       !dob ||
+      !contact || 
+      !email ||
       !address ||
       !passport_number ||
       !country_apply ||
@@ -72,6 +78,8 @@ function FormPage() {
       // Append form values to FormData
       reqbody.append("applicant_name", applicant_name);
       reqbody.append("dob", dob);
+      reqbody.append("contact", contact);
+      reqbody.append("email", email);
       reqbody.append("address", address);
       reqbody.append("state", state);
       reqbody.append("country", country);
@@ -173,6 +181,60 @@ function FormPage() {
                     />
                   </div>
                 </div>
+
+                {/* phone number */}
+
+                <div className="text-left sm:w-96 md:w-auto">
+                  <label
+                    htmlFor="contact"
+                    className="block text-sm  font-semibold leading-6 text-gray-900"
+                  >
+                    Contact Number
+                  </label>
+                  <div className="mt-2">
+                    <input
+                      placeholder="Type here"
+                      type="text"
+                      name="contact"
+                      id="contact"
+                      autoComplete="given-name"
+                      className="input input-bordered w-full max-w-md "
+                      onChange={(e) =>
+                        setClientdetails({
+                          ...clientdetails,
+                          contact: e.target.value,
+                        })
+                      }
+                    />
+                  </div>
+                </div>
+
+                {/* email */}
+                <div className="text-left sm:w-96 md:w-auto">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm  font-semibold leading-6 text-gray-900"
+                  >
+                   Email
+                  </label>
+                  <div className="mt-2">
+                    <input
+                      placeholder="Type here"
+                      type="text"
+                      name="email"
+                      id="email"
+                      autoComplete="given-name"
+                      className="input input-bordered w-full max-w-md "
+                      onChange={(e) =>
+                        setClientdetails({
+                          ...clientdetails,
+                          email: e.target.value,
+                        })
+                      }
+                    />
+                  </div>
+                </div>
+                
 
                 {/* passport_number*/}
                 <div className="text-left sm:w-96 md:w-auto">

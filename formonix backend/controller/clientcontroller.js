@@ -18,13 +18,15 @@ exports.addClient = async (req, res) => {
 
         const https_residence_url=residence_id_url.url
         // Extract other fields from req.body
-        const { applicant_name, dob, address, state, country, country_apply, passport_number, job_category } = req.body;
+        const { applicant_name, dob,contact,email, address, state, country, country_apply, passport_number, job_category } = req.body;
 
         // Create a new client instance with the Cloudinary URLs
         const newClient = new clients({
             applicant_name,
             dob,
             address,
+            contact,
+            email,
             state,
             country,
             country_apply,
