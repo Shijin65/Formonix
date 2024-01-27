@@ -227,18 +227,6 @@ function ShowModal(props) {
                     fileName={`${Clientdata.applicant_name}-resume`}
                     fileType="application/pdf"
                   />
-                                    <button
-                    className="btn sm:btn-sm  btn-xs"
-                    onClick={() => {
-                      saveAs(
-                        `${Clientdata.resume}`,
-                        `${Clientdata.applicant_name}-resume`
-                      );
-                    }}
-                  >
-                    Download
-                  </button>
-
                 </div>
               </div>:""}
             </div>
