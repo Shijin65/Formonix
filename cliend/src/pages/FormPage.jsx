@@ -5,14 +5,25 @@ import swal from "sweetalert";
 import ClientNavbar from "../Components/ClientNavbar";
 
 function FormPage() {
+  const countries = [
+    { name: "UAE", job: ["Electrician", "plumber", "welder","Steel fabrication","Auto mechanic","Denter","Spray painter"] },
+    { name: "Malaysia", job: ["Restuarant helper"] },
+    { name: "Croatia", job: ["Factory work", "Helpers", "Packing"] },
+    { name: "Poland", job: ["Warehouse work", "Construction work", ",Food delivery","salesman","taxi driver"] },
+    { name: "HUNGARY ", job: ["Factory work", "Helpers", "Packing"] },
+    { name: "Malta", job: ["Office work for ladies", "Taxi drivers", "salesman","delivery boy"] },
+    // Add more countries and their job as needed
+  ];
   const Navigate = useNavigate();
   const [loading, setloading] = useState(false);
+  const [selectedCountry, setSelectedCountry] = useState("");
+  const [job, setStates] = useState([]);
   const [clientdetails, setClientdetails] = useState({
     applicant_name: "",
     dob: "",
     address: "",
-    contact:"",
-    email:"",
+    contact: "",
+    email: "",
     state: "",
     country: "",
     country_apply: "",
@@ -28,11 +39,22 @@ function FormPage() {
     bank_statement: "",
     resume: "",
   });
-  console.log(clientdetails);
-
+  // console.log(clientdetails);
+  const handleCountryChange = (e) => {
+    setClientdetails({
+      ...clientdetails,
+      country_apply: e.target.value,
+    });
+    const countryName = e.target.value;
+    const selectedCountry = countries.find(
+      (country) => country.name === countryName
+    );
+    setSelectedCountry(countryName);
+    setStates(selectedCountry ? selectedCountry.job : []);
+  };
   const handleadd = async (e) => {
     e.preventDefault();
-    
+
     const {
       applicant_name,
       dob,
@@ -58,7 +80,7 @@ function FormPage() {
     if (
       !applicant_name ||
       !dob ||
-      !contact || 
+      !contact ||
       !email ||
       !address ||
       !passport_number ||
@@ -69,10 +91,9 @@ function FormPage() {
       !passport_back ||
       !passport_full
     ) {
-      
       alert("please fill the form");
     } else {
-      setloading(true)
+      setloading(true);
       const reqbody = new FormData();
 
       // Append form values to FormData
@@ -100,7 +121,7 @@ function FormPage() {
       console.log(result);
 
       if (!result.error) {
-        setloading(false)
+        setloading(false);
         swal({
           title: "successfully uploaded",
           text: "your details haS been successfully uploaded",
@@ -119,7 +140,10 @@ function FormPage() {
   return (
     <>
       <ClientNavbar />
-      <div className="mt-5 my-8  text-center" style={{opacity:loading?"50%":""}}> 
+      <div
+        className="mt-5 my-8  text-center"
+        style={{ opacity: loading ? "50%" : "" }}
+      >
         <h1 className="text-center text-2xl font-bold ">FORM</h1>
         <form className="mt-5 sm:mx-5  lg:ms-10" onSubmit={handleadd}>
           <div className="space-y-12 ">
@@ -215,7 +239,7 @@ function FormPage() {
                     htmlFor="email"
                     className="block text-sm  font-semibold leading-6 text-gray-900"
                   >
-                   Email
+                    Email
                   </label>
                   <div className="mt-2">
                     <input
@@ -234,7 +258,6 @@ function FormPage() {
                     />
                   </div>
                 </div>
-                
 
                 {/* passport_number*/}
                 <div className="text-left sm:w-96 md:w-auto">
@@ -287,6 +310,35 @@ function FormPage() {
                   </div>
                 </div>
 
+                {/* Country */}
+                <div className="text-left sm:w-96 md:w-auto">
+                  <label
+                    htmlFor="first-name"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Country
+                  </label>
+                  <div className="mt-2">
+                    <select
+                      id="country"
+                      name="country"
+                      autoComplete="country-name"
+                      className=" input input-bordered w-full max-w-md "
+                      onChange={(e) =>
+                        setClientdetails({
+                          ...clientdetails,
+                          country: e.target.value,
+                        })
+                      }
+                    >
+                      <option value="">Select</option>
+                      <option>United job</option>
+                      <option>Canada</option>
+                      <option>Mexico</option>
+                      <option>India</option>
+                    </select>
+                  </div>
+                </div>
                 {/* State */}
                 <div className="text-left sm:w-96 md:w-auto">
                   <label
@@ -313,36 +365,6 @@ function FormPage() {
                   </div>
                 </div>
 
-                {/* Country */}
-                <div className="text-left sm:w-96 md:w-auto">
-                  <label
-                    htmlFor="first-name"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Country
-                  </label>
-                  <div className="mt-2">
-                    <select
-                      id="country"
-                      name="country"
-                      autoComplete="country-name"
-                      className=" input input-bordered w-full max-w-md "
-                      onChange={(e) =>
-                        setClientdetails({
-                          ...clientdetails,
-                          country: e.target.value,
-                        })
-                      }
-                    >
-                      <option value="">Select</option>
-                      <option>United States</option>
-                      <option>Canada</option>
-                      <option>Mexico</option>
-                      <option>India</option>
-                    </select>
-                  </div>
-                </div>
-
                 {/* Country To Apply */}
                 <div className="text-left sm:w-96 md:w-auto">
                   <label
@@ -357,17 +379,14 @@ function FormPage() {
                       name="countrytoapply"
                       autoComplete="countrytoapply"
                       className=" input input-bordered w-full max-w-md "
-                      onChange={(e) =>
-                        setClientdetails({
-                          ...clientdetails,
-                          country_apply: e.target.value,
-                        })
-                      }
+                      onChange={handleCountryChange}
                     >
-                      <option value="">Select</option>
-                      <option>United States</option>
-                      <option>Canada</option>
-                      <option>Mexico</option>
+                      {selectedCountry?"":<option value="">Select a country</option>}
+                      {countries.map((country) => (
+                        <option key={country.name} value={country.name}>
+                          {country.name}
+                        </option>
+                      ))}
                     </select>
                   </div>
                 </div>
@@ -393,10 +412,12 @@ function FormPage() {
                         })
                       }
                     >
-                      <option value="">Select</option>
-                      <option>Software tester</option>
-                      <option>Developer</option>
-                      <option>Electriction</option>
+                      <option value="">{selectedCountry?"Select a job":"select country first"}</option>
+                      {job.map((state) => (
+                        <option key={state} value={state}>
+                          {state}
+                        </option>
+                      ))}
                     </select>
                   </div>
                 </div>
@@ -663,15 +684,17 @@ function FormPage() {
         </form>
       </div>
 
-      {loading?<dialog open className="modal shadow-2xl" >
-        <div className="modal-box text-center">
-          <h3 className="font-bold text-lg">Processing</h3>
-          <span className="loading loading-dots loading-lg mt-4"></span>
-          <p>
-            please wait, your details are getting uploaded 
-          </p>
-        </div>
-      </dialog>:""}
+      {loading ? (
+        <dialog open className="modal shadow-2xl">
+          <div className="modal-box text-center">
+            <h3 className="font-bold text-lg">Processing</h3>
+            <span className="loading loading-dots loading-lg mt-4"></span>
+            <p>please wait, your details are getting uploaded</p>
+          </div>
+        </dialog>
+      ) : (
+        ""
+      )}
     </>
   );
 }
