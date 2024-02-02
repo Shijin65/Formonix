@@ -412,7 +412,7 @@ function FormPage() {
                         })
                       }
                     >
-                      <option value="">{selectedCountry?"Select a job":"select country first"}</option>
+                      <option value="">{selectedCountry?"":"select country first"}</option>
                       {job.map((state) => (
                         <option key={state} value={state}>
                           {state}
