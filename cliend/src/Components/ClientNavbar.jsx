@@ -50,8 +50,8 @@ function ClientNavbar() {
               <a href="/" className="nav-item nav-link active font-semibold">
                 HOME
               </a>
-              <a href="form" className="nav-item nav-link font-semibold">
-                FORM
+              <a href="register" className="nav-item nav-link font-semibold">
+                REGISTER
               </a>
             </div>
           </nav>

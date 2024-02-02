@@ -144,7 +144,7 @@ function FormPage() {
         className="mt-5 my-8  text-center"
         style={{ opacity: loading ? "50%" : "" }}
       >
-        <h1 className="text-center text-2xl font-bold ">FORM</h1>
+        <h1 className="text-center text-2xl font-bold ">REGISTER</h1>
         <form className="mt-5 sm:mx-5  lg:ms-10" onSubmit={handleadd}>
           <div className="space-y-12 ">
             <div className=" border-gray-900/10 pb-12 ">
@@ -160,7 +160,7 @@ function FormPage() {
                     htmlFor="first-name"
                     className="block text-sm  font-semibold leading-6 text-gray-900"
                   >
-                    Applicant Name
+                    Applicant Name <span className="opacity-50">(As per the Passport)</span>
                   </label>
                   <div className="mt-2">
                     <input

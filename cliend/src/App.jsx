@@ -8,7 +8,7 @@ function App() {
    <div>
     <Switch>
     <Route path="/" Component={Home} />
-    <Route path="/form" Component={FormPage} />
+    <Route path="/register" Component={FormPage} />
     <Route path="/formoad" Component={Admin} />
     </Switch>
    </div>
