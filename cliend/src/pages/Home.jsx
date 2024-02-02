@@ -38,7 +38,7 @@ function Home() {
                     href=""
                     className="btn btn-primary py-md-3 px-md-5 mt-2"
                     onClick={() => {
-                      Navigate("/form", { replace: true });
+                      Navigate("/register", { replace: true });
                     }}
                   >
                     Get Started
