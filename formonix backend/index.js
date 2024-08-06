@@ -6,20 +6,20 @@ const cors=require('cors')
 
 const router=require('./routers/router')
 
-
 // body parser
 const bodyparse=require('body-parser')
 
-
-
-
-
 require('./DB/connection')
-
 
 const profoserver=express()
 
-profoserver.use(cors())
+const corsOptions = {
+   origin: '*', // Allow all origins
+   methods: ['GET', 'POST', 'PUT', 'DELETE'],
+   allowedHeaders: ['Content-Type', 'Authorization']
+};
+
+profoserver.use(cors(corsOptions));
 
 profoserver.use(express.json())
 
@@ -35,7 +35,7 @@ profoserver.use(bodyparse.json())
 
 profoserver.use('/documents',express.static('./documents'))
 
-const PORT= process.env.PORT || 4010
+const PORT= process.env.PORT || 4010 
 
 profoserver.listen(PORT,()=>{
    console.log(`server is successfully running to port number:${PORT}`);

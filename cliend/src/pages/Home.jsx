@@ -18,7 +18,7 @@ function Home() {
           data-ride="carousel"
         >
           <div className="carousel-inner">
-            
+
             <div className="carousel-item">
               <img
                 className="w-screen min-h-96 max-h-screen image-full"
@@ -29,10 +29,10 @@ function Home() {
               <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
                 <div className="p-3" style={{ maxWidth: "900px" }}>
                   <h4 className="text-white text-uppercase mb-md-3">
-                    Study Abroad
+                    EUROPASS
                   </h4>
                   <h1 className="display-3 text-white mb-md-4">
-                    Discover Amazing Places With Us
+                    Bridging Talent and Opportunity Globally
                   </h1>
                   <button
                     href=""
@@ -47,13 +47,13 @@ function Home() {
               </div>
             </div>
           </div>
-         
+
         </div>
       </div>
       {/* Carousel End */}
 
       {/* Footer Start */}
-      <div className="container-fluid bg-dark text-white-50 pt-5 px-sm-3 px-lg-5 " style={{fontFamily:"-moz-initial"}}>
+      <div className="container-fluid bg-dark text-white-50 pt-5 px-sm-3 px-lg-5 " style={{ fontFamily: "-moz-initial" }}>
         <div className="row ">
           <div className="col-lg-6 col-md-12 mb-3">
             <a href="/" className="navbar-brand">
@@ -61,9 +61,8 @@ function Home() {
                 <span className="text-white">EURO</span>PASS
               </h1>
             </a>
-            <p style={{fontFamily:"-moz-initial"}}>
-              Sed ipsum clita tempor ipsum ipsum amet sit ipsum lorem amet
-              labore rebum lorem ipsum dolor. No sed vero lorem dolor dolor
+            <p style={{ fontFamily: "-moz-initial" }}>
+              Europass International is a leading employment agency based in Warsaw, Poland. Established to address the evolving needs of the labor market, Europass International specializes in providing comprehensive recruitment solutions for both local and international clients. Our mission is to bridge the gap between talented professionals and employers, fostering successful and sustainable employment relationships.
             </p>
             <h6
               className="text-white text-uppercase mt-4 mb-3"
@@ -94,15 +93,15 @@ function Home() {
             >
               Contact Us
             </h5>
-            <p style={{fontFamily:"-moz-initial"}}>
-              <i className="fa fa-map-marker-alt mr-2" ></i>123 Street, New York,
-              USA
+            <p style={{ fontFamily: "-moz-initial" }}>
+              <i className="fa fa-map-marker-alt mr-2" ></i>Aleja "Solidarności" 75 /26, Warszawa,
+              Mazowieckie Poland - 00-090
             </p>
-            <p style={{fontFamily:"-moz-initial"}}>
+            {/* <p style={{fontFamily:"-moz-initial"}}>
               <i className="fa fa-phone-alt mr-2"></i>+012 345 67890
-            </p>
-            <p style={{fontFamily:"-moz-initial"}}> 
-              <i className="fa fa-envelope mr-2"></i>info@example.com
+            </p> */}
+            <p style={{ fontFamily: "-moz-initial" }}>
+              <i className="fa fa-envelope mr-2"></i>info@europassinternational.pl
             </p>
           </div>
         </div>

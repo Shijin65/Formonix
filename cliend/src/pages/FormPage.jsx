@@ -116,11 +116,15 @@ function FormPage() {
       reqbody.append("pcc", pcc);
       reqbody.append("bank_statement", bank_statement);
       reqbody.append("resume", resume);
+      const reqHeader = {
+        "Content-Type": "multipart/form-data",
+    
+      }
 
-      const result = await addClients(reqbody);
+      const result = await addClients(reqbody,reqHeader);
       console.log(result);
 
-      if (!result.error) {
+      if (result.status===200) {
         setloading(false);
         swal({
           title: "successfully uploaded",

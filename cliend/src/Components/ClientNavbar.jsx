@@ -11,12 +11,12 @@ function ClientNavbar() {
             <div className="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
               <div className="d-inline-flex align-items-center">
                 <p>
-                  <i className="fa fa-envelope mr-2"></i>info@example.com
+                  <i className="fa fa-envelope mr-2"></i>info@europassinternational.pl 
                 </p>
                 <p className="text-body px-3">|</p>
-                <p>
+                {/* <p>
                   <i className="fa fa-phone-alt mr-2"></i>+012 345 6789
-                </p>
+                </p> */}
               </div>
             </div>
             <div className="col-lg-6 text-center text-lg-right">
@@ -50,8 +50,11 @@ function ClientNavbar() {
               <a href="/" className="nav-item nav-link active font-semibold">
                 HOME
               </a>
-              <a href="register" className="nav-item nav-link font-semibold">
+              <a href="register" className="nav-item ms-2 nav-link font-semibold">
                 REGISTER
+              </a>
+              <a href="admin/login" className="nav-item ms-2 nav-link font-semibold">
+                LOGIN
               </a>
             </div>
           </nav>

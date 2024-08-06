@@ -10,7 +10,7 @@ import Table from "../Components/Table";
 function ShowData() {
   const [modalShow, setModalShow] = useState(false);
   const [itemdata, setitemdata] = useState();
-  const [Clientdata, setClientdata] = useState();
+  const [clientdata, setClientdata] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [search, setsearch] = useState("");
   const [searchresult, setsearchresult] = useState([]);
@@ -21,9 +21,9 @@ function ShowData() {
     async function getdata() {
       try {
         const result = await getclient();
-        console.log(result);
+        console.log(result.data);
 
-        setClientdata(result);
+        setClientdata(result.data);
       } catch (error) {
         Navigate("/", { replace: true });
         console.log(error);
@@ -37,7 +37,7 @@ function ShowData() {
   const searchhandler = (searchterm) => {
     setsearch(searchterm);
     if (searchterm !== "") {
-      const newclientdata = Clientdata.filter((client) => {
+      const newclientdata = clientdata.filter((client) => {
         return Object.values(client)[1]
           .toLowerCase()
           .includes(searchterm.toLowerCase());
@@ -85,10 +85,10 @@ function ShowData() {
       </div>
 
       <h3 className="text-start sm:mt-5 text-sm sm:text-lg ms-2 font-semibold text-slate-500 mb-4">
-        Total : {search.length !== 0 ? searchresult.length : Clientdata.length}
+        Total : {search.length !== 0 ? searchresult.length : clientdata.length}
       </h3>
       {table ? (
-        <Table data={search.length !== 0 ? searchresult:Clientdata}/>
+        <Table data={search.length !== 0 ? searchresult:clientdata}/>
       ) : (
         <>
           <div className="sm:m-10 m-2">
@@ -123,7 +123,7 @@ function ShowData() {
                       </div>
                     );
                   })
-                : Clientdata.map((item, index) => {
+                : clientdata.map((item, index) => {
                     return (
                       <div
                         className="card card-side bg-base-100 shadow-xl max-h-48 min-h-28"

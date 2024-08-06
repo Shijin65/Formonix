@@ -1,25 +1,16 @@
-
-
 const express=require('express')
 
-
-
 // import controller
-
 const clientcontroller=require('../controller/clientcontroller')
-
+const admincontroller=require('../controller/admincontoller')
 
 // import multer
-
 const multerconfig = require('../middlewares/multermiddleware')
-
+const jwt=require('../middlewares/jwt')
 
 const router=new express.Router()
 
-
-
 // add client
-
 router.post('/clients',multerconfig.fields([
     {name:'residence_id',maxCount:1},
     {name:'applicant_image',maxCount:1},
@@ -34,9 +25,15 @@ router.post('/clients',multerconfig.fields([
 
 ]),clientcontroller.addClient)
 
-
 // get clients
 router.get('/admin/clients',clientcontroller.getclientsDetails)
+
+// adminregister
+router.post('/admin/register',admincontroller.register)
+
+// adminlogin
+router.post('/admin/login',admincontroller.login)
+
 
 
 module.exports=router
