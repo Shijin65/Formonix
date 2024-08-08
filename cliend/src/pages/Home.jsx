@@ -5,6 +5,7 @@ import ClientNavbar from "../Components/ClientNavbar";
 import image from "../assets/carousel-3.jpg"
 function Home() {
   const Navigate = useNavigate();
+  
 
   return (
     <>

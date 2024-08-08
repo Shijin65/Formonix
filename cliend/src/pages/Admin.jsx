@@ -18,6 +18,7 @@ function Admin() {
 
   console.log(isValidate);
 
+
   if (!isValidate) {
     return (
       <div className='failedAuthentication  flex-column  ' style={{height:'100vh'}}>

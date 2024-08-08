@@ -9,7 +9,7 @@ function App() {
    <div>
     <Switch>
     <Route path="/" Component={Home} />
-    <Route path="/admin/login" Component={Login} />
+    <Route path="/login" Component={Login} />
     <Route path="/register" Component={FormPage} />
     <Route path="/formoad" Component={Admin} />
     </Switch>

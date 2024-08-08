@@ -53,7 +53,7 @@ function ClientNavbar() {
               <a href="register" className="nav-item ms-2 nav-link font-semibold">
                 REGISTER
               </a>
-              <a href="admin/login" className="nav-item ms-2 nav-link font-semibold">
+              <a href="login" className="nav-item ms-2 nav-link font-semibold">
                 LOGIN
               </a>
             </div>
