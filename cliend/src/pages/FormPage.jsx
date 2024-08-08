@@ -6,40 +6,46 @@ import ClientNavbar from "../Components/ClientNavbar";
 
 function FormPage() {
   const countries = [
-    { name: "UAE", job: ["Electrician", "plumber", "welder","Steel fabrication","Auto mechanic","Denter","Spray painter"] },
+    { name: "UAE", job: ["Electrician", "plumber", "welder", "Steel fabrication", "Auto mechanic", "Denter", "Spray painter"] },
     { name: "Malaysia", job: ["Restuarant helper"] },
     { name: "Croatia", job: ["Factory work", "Helpers", "Packing"] },
-    { name: "Poland", job: ["Warehouse work", "Construction work", ",Food delivery","salesman","taxi driver"] },
+    { name: "Poland", job: ["Warehouse work", "Construction work", "Food delivery", "salesman", "taxi driver"] },
     { name: "HUNGARY ", job: ["Factory work", "Helpers", "Packing"] },
-    { name: "Malta", job: ["Office work for ladies", "Taxi drivers", "salesman","delivery boy"] },
+    { name: "Malta", job: ["Office work for ladies", "Taxi drivers", "salesman", "delivery boy"] },
     // Add more countries and their job as needed
   ];
   const Navigate = useNavigate();
   const [loading, setloading] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState("");
   const [job, setStates] = useState([]);
-  const [clientdetails, setClientdetails] = useState({
-    applicant_name: "",
-    dob: "",
-    address: "",
-    contact: "",
-    email: "",
-    state: "",
-    country: "",
-    country_apply: "",
-    passport_number: "",
-    job_category: "",
-    residence_id: "",
-    applicant_image: "",
-    passport_front: "",
-    passport_back: "",
-    passport_full: "",
-    expirience_cerificate: "",
-    pcc: "",
-    bank_statement: "",
-    resume: "",
-  });
-  // console.log(clientdetails);
+  const [clientdetails, setClientdetails] = useState({});
+  const [errorMessages, setErrorMessages] = useState({});
+
+  const handleFileChange = (e, fieldName) => {
+    const file = e.target.files[0];
+    const maxSizeInBytes = 2 * 1024 * 1024; // 2 MB size limit
+
+    if (file && file.size > maxSizeInBytes) {
+      setErrorMessages(prevErrors => ({
+        ...prevErrors,
+        [fieldName]: `${fieldName.replace('_', ' ')} file size exceeds the 2 MB limit.`,
+      }));
+      setClientdetails(prevDetails => ({
+        ...prevDetails,
+        [fieldName]: null,
+      }));
+    } else {
+      setErrorMessages(prevErrors => ({
+        ...prevErrors,
+        [fieldName]: '',
+      }));
+      setClientdetails(prevDetails => ({
+        ...prevDetails,
+        [fieldName]: file,
+      }));
+    }
+  };
+  console.log(clientdetails);
   const handleCountryChange = (e) => {
     setClientdetails({
       ...clientdetails,
@@ -51,6 +57,13 @@ function FormPage() {
     );
     setSelectedCountry(countryName);
     setStates(selectedCountry ? selectedCountry.job : []);
+  };
+
+  const isSubmitDisabled = () => {
+    // Array of file fields to check
+    const fileFields = ['residence_id', 'applicant_image', 'passport_front', 'passport_back', 'passport_full', 'expirience_cerificate', 'pcc', 'bank_statement', 'resume'];
+
+    return fileFields.some(field => clientdetails[field] === null);
   };
   const handleadd = async (e) => {
     e.preventDefault();
@@ -118,13 +131,13 @@ function FormPage() {
       reqbody.append("resume", resume);
       const reqHeader = {
         "Content-Type": "multipart/form-data",
-    
+
       }
 
-      const result = await addClients(reqbody,reqHeader);
+      const result = await addClients(reqbody, reqHeader);
       console.log(result);
 
-      if (result.status===200) {
+      if (result.status === 200) {
         setloading(false);
         swal({
           title: "successfully uploaded",
@@ -385,7 +398,7 @@ function FormPage() {
                       className=" input input-bordered w-full max-w-md "
                       onChange={handleCountryChange}
                     >
-                      {selectedCountry?"":<option value="">Select a country</option>}
+                      {selectedCountry ? "" : <option value="">Select a country</option>}
                       {countries.map((country) => (
                         <option key={country.name} value={country.name}>
                           {country.name}
@@ -416,7 +429,7 @@ function FormPage() {
                         })
                       }
                     >
-                      <option value="">{selectedCountry?"":"select country first"}</option>
+                      <option value="">{selectedCountry ? "" : "select country first"}</option>
                       {job.map((state) => (
                         <option key={state} value={state}>
                           {state}
@@ -427,16 +440,17 @@ function FormPage() {
                 </div>
               </div>
 
-              <h1 className="my-5 text-base font-semibold leading-7 text-gray-900">
+              <h1 className=" text-base font-semibold leading-7 text-gray-900">
                 Document Section
               </h1>
+              <p className=" text-base font-semibold leading-7 text-gray-600" >(All documents should be less than 2 mb <u>PDF</u> files)</p>
 
               <div className=" grid lg:grid-cols-3 md:grid-cols-2 gap-x-5 gap-y-4 content-center">
                 {/* residence_id
                  */}
                 <div className="text-left sm:w-96 md:w-auto">
                   <label
-                    htmlFor="first-name"
+                    htmlFor="residence_id"
                     className="block text-sm font-medium leading-6 text-gray-900"
                   >
                     Residence ID
@@ -448,16 +462,17 @@ function FormPage() {
                       id="residence_id"
                       autoComplete="residence_id"
                       type="file"
-                      className="file-input w-full max-w-xs "
-                      onChange={(e) =>
-                        setClientdetails({
-                          ...clientdetails,
-                          residence_id: e.target.files[0],
-                        })
-                      }
+                      className="file-input w-full max-w-xs"
+                      onChange={(e) => handleFileChange(e, 'residence_id')}
                     />
+                    {errorMessages.residence_id && (
+                      <p className="mt-2 text-sm text-red-600">
+                        {errorMessages.residence_id}
+                      </p>
+                    )}
                   </div>
                 </div>
+
 
                 {/* Applicant Image */}
                 <div className="text-left sm:w-96 md:w-auto">
@@ -474,24 +489,25 @@ function FormPage() {
                       id="applicant_image"
                       autoComplete="applicant_image"
                       type="file"
-                      className="file-input w-full max-w-xs "
-                      onChange={(e) =>
-                        setClientdetails({
-                          ...clientdetails,
-                          applicant_image: e.target.files[0],
-                        })
-                      }
+                      className="file-input w-full max-w-xs"
+                      onChange={(e) => handleFileChange(e, 'applicant_image')}
                     />
+                    {errorMessages.applicant_image && (
+                      <p className="mt-2 text-sm text-red-600">
+                        {errorMessages.applicant_image}
+                      </p>
+                    )}
                   </div>
                 </div>
+
 
                 {/* Passport front side */}
                 <div className="text-left sm:w-96 md:w-auto">
                   <label
-                    htmlFor="first-name"
+                    htmlFor="passport_front"
                     className="block text-sm font-medium leading-6 text-gray-900"
                   >
-                    Passport front side
+                    Passport Front Side
                   </label>
                   <div className="mt-2">
                     <input
@@ -500,24 +516,25 @@ function FormPage() {
                       id="passport_front"
                       autoComplete="passport_front"
                       type="file"
-                      className="file-input w-full max-w-xs "
-                      onChange={(e) =>
-                        setClientdetails({
-                          ...clientdetails,
-                          passport_front: e.target.files[0],
-                        })
-                      }
+                      className="file-input w-full max-w-xs"
+                      onChange={(e) => handleFileChange(e, 'passport_front')}
                     />
+                    {errorMessages.passport_front && (
+                      <p className="mt-2 text-sm text-red-600">
+                        {errorMessages.passport_front}
+                      </p>
+                    )}
                   </div>
                 </div>
+
 
                 {/* Passport back side */}
                 <div className="text-left sm:w-96 md:w-auto">
                   <label
-                    htmlFor="Passport back side"
+                    htmlFor="passport_back"
                     className="block text-sm font-medium leading-6 text-gray-900"
                   >
-                    Passport Back side
+                    Passport Back Side
                   </label>
                   <div className="mt-2">
                     <input
@@ -526,16 +543,17 @@ function FormPage() {
                       id="passport_back"
                       autoComplete="passport_back"
                       type="file"
-                      className="file-input w-full max-w-xs "
-                      onChange={(e) =>
-                        setClientdetails({
-                          ...clientdetails,
-                          passport_back: e.target.files[0],
-                        })
-                      }
+                      className="file-input w-full max-w-xs"
+                      onChange={(e) => handleFileChange(e, 'passport_back')}
                     />
+                    {errorMessages.passport_back && (
+                      <p className="mt-2 text-sm text-red-600">
+                        {errorMessages.passport_back}
+                      </p>
+                    )}
                   </div>
                 </div>
+
 
                 {/* passport_full */}
                 <div className="text-left sm:w-96 md:w-auto">
@@ -552,21 +570,22 @@ function FormPage() {
                       id="passport_full"
                       autoComplete="passport_full"
                       type="file"
-                      className="file-input w-full max-w-xs "
-                      onChange={(e) =>
-                        setClientdetails({
-                          ...clientdetails,
-                          passport_full: e.target.files[0],
-                        })
-                      }
+                      className="file-input w-full max-w-xs"
+                      onChange={(e) => handleFileChange(e, 'passport_full')}
                     />
+                    {errorMessages.passport_full && (
+                      <p className="mt-2 text-sm text-red-600">
+                        {errorMessages.passport_full}
+                      </p>
+                    )}
                   </div>
                 </div>
+
 
                 {/* expirience_cerificate */}
                 <div className="text-left sm:w-96 md:w-auto">
                   <label
-                    htmlFor="first-name"
+                    htmlFor="expirience_cerificate"
                     className="block text-sm font-medium leading-6 text-gray-900"
                   >
                     Experience Certificate
@@ -578,16 +597,17 @@ function FormPage() {
                       id="expirience_cerificate"
                       autoComplete="expirience_cerificate"
                       type="file"
-                      className="file-input w-full max-w-xs "
-                      onChange={(e) =>
-                        setClientdetails({
-                          ...clientdetails,
-                          expirience_cerificate: e.target.files[0],
-                        })
-                      }
+                      className="file-input w-full max-w-xs"
+                      onChange={(e) => handleFileChange(e, 'expirience_cerificate')}
                     />
+                    {errorMessages.expirience_cerificate && (
+                      <p className="mt-2 text-sm text-red-600">
+                        {errorMessages.expirience_cerificate}
+                      </p>
+                    )}
                   </div>
                 </div>
+
 
                 {/* pcc */}
                 <div className="text-left sm:w-96 md:w-auto">
@@ -595,7 +615,7 @@ function FormPage() {
                     htmlFor="pcc"
                     className="block text-sm font-medium leading-6 text-gray-900"
                   >
-                    pcc
+                    PCC
                   </label>
                   <div className="mt-2">
                     <input
@@ -604,16 +624,17 @@ function FormPage() {
                       id="pcc"
                       autoComplete="pcc"
                       type="file"
-                      className="file-input w-full max-w-xs "
-                      onChange={(e) =>
-                        setClientdetails({
-                          ...clientdetails,
-                          pcc: e.target.files[0],
-                        })
-                      }
+                      className="file-input w-full max-w-xs"
+                      onChange={(e) => handleFileChange(e, 'pcc')}
                     />
+                    {errorMessages.pcc && (
+                      <p className="mt-2 text-sm text-red-600">
+                        {errorMessages.pcc}
+                      </p>
+                    )}
                   </div>
                 </div>
+
 
                 {/* Bank_Statement */}
                 <div className="text-left sm:w-96 md:w-auto">
@@ -621,7 +642,7 @@ function FormPage() {
                     htmlFor="bank_statement"
                     className="block text-sm font-medium leading-6 text-gray-900"
                   >
-                    Bank Statement
+                    Bank Statement
                   </label>
                   <div className="mt-2">
                     <input
@@ -630,16 +651,17 @@ function FormPage() {
                       id="bank_statement"
                       autoComplete="bank_statement"
                       type="file"
-                      className="file-input w-full max-w-xs "
-                      onChange={(e) =>
-                        setClientdetails({
-                          ...clientdetails,
-                          bank_statement: e.target.files[0],
-                        })
-                      }
+                      className="file-input w-full max-w-xs"
+                      onChange={(e) => handleFileChange(e, 'bank_statement')}
                     />
+                    {errorMessages.bank_statement && (
+                      <p className="mt-2 text-sm text-red-600">
+                        {errorMessages.bank_statement}
+                      </p>
+                    )}
                   </div>
                 </div>
+
 
                 {/* resume */}
 
@@ -648,7 +670,7 @@ function FormPage() {
                     htmlFor="resume"
                     className="block text-sm font-medium leading-6 text-gray-900"
                   >
-                    resume
+                    Resume
                   </label>
                   <div className="mt-2">
                     <input
@@ -657,21 +679,26 @@ function FormPage() {
                       id="resume"
                       autoComplete="resume"
                       type="file"
-                      className="file-input w-full max-w-xs "
-                      onChange={(e) =>
-                        setClientdetails({
-                          ...clientdetails,
-                          resume: e.target.files[0],
-                        })
-                      }
+                      className="file-input w-full max-w-xs"
+                      onChange={(e) => handleFileChange(e, 'resume')}
                     />
+                    {errorMessages.resume && (
+                      <p className="mt-2 text-sm text-red-600">
+                        {errorMessages.resume}
+                      </p>
+                    )}
                   </div>
                 </div>
+
               </div>
             </div>
 
             <div className="mt-6 flex items-center justify-end gap-x-6">
-              <button type="submit" className="btn glass bg-green-600">
+              <button
+                type="submit"
+                className="btn glass bg-green-600"
+                disabled={isSubmitDisabled()}
+              >
                 Submit
               </button>
               <button
